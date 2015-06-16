@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{01bca0fd-04db-4cd2-8f0d-4995eb334a1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Platform">
+      <UniqueIdentifier>{f9325356-e1f1-4b5b-92c2-7588724e281a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Platform\Win32">
+      <UniqueIdentifier>{fd06981d-4933-43ea-8184-2d65fc1a2259}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Framework\GameApp.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Framework\GameApp.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
