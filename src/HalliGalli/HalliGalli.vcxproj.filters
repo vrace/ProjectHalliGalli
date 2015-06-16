@@ -20,5 +20,8 @@
     <ClCompile Include="Framework\GameApp.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\Platform\Win32\WinMain.cpp">
+      <Filter>Framework\Platform\Win32</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
