@@ -1,7 +1,9 @@
 #include <Windows.h>
 #include <windowsx.h>
 #include <assert.h>
+#include <stdio.h>
 #include "../../GameApp.h"
+#include "../../Render/Render.h"
 
 namespace
 {
@@ -27,7 +29,7 @@ namespace
 		WNDCLASSEX wndclass;
 
 		wndclass.cbSize = sizeof(wndclass);
-		wndclass.style = CS_HREDRAW | CS_VREDRAW;
+		wndclass.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
 		wndclass.lpfnWndProc = WndProc;
 		wndclass.cbClsExtra = 0;
 		wndclass.cbWndExtra = 0;
@@ -57,8 +59,52 @@ namespace
 			x, y, width, height, NULL, NULL, hInstance, NULL);
 	}
 
+	void SetupPixelFormat(HDC hdc)
+	{
+		PIXELFORMATDESCRIPTOR desc = { 0 };
+		desc.nSize = sizeof(desc);
+		desc.cColorBits = 32;
+		desc.cDepthBits = 16;
+		desc.dwFlags = PFD_DRAW_TO_WINDOW | PFD_DOUBLEBUFFER | PFD_SUPPORT_OPENGL;
+		desc.iPixelType = PFD_TYPE_RGBA;
+
+		int pf = ChoosePixelFormat(hdc, &desc);
+		SetPixelFormat(hdc, pf, &desc);
+	}
+
+	HGLRC SetupOpenGL(HDC hdc)
+	{
+		HGLRC hrc = wglCreateContext(hdc);
+		wglMakeCurrent(hdc, hrc);
+
+		glViewport(0, 0, theApp->ScreenWidth(), theApp->ScreenHeight());
+		
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+
+		glShadeModel(GL_SMOOTH);
+		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+		glHint(GL_LINE_SMOOTH, GL_NICEST);
+
+		glClearColor(0, 0, 0, 0);
+
+		printf("Vendor: %s\n", glGetString(GL_VENDOR));
+		printf("Renderer: %s\n", glGetString(GL_RENDERER));
+		printf("Version: %s\n", glGetString(GL_VERSION));
+
+		return hrc;
+	}
+
 	void RunLoop(HINSTANCE hInstance, HWND hwnd)
 	{
+		HDC hdc = GetDC(hwnd);
+		SetupPixelFormat(hdc);
+
+		HGLRC hrc = SetupOpenGL(hdc);
+
 		ShowWindow(hwnd, SW_NORMAL);
 		UpdateWindow(hwnd);
 
@@ -69,11 +115,19 @@ namespace
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
+
+		wglMakeCurrent(hdc, NULL);
+		wglDeleteContext(hrc);
+
+		ReleaseDC(hwnd, hdc);
 	}
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
+	AllocConsole();
+	freopen("CONOUT$", "w+t", stdout);
+
 	theApp = GameAppCreate();
 	assert(theApp != NULL);
 
@@ -84,6 +138,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	GameAppDestroy(theApp);
 	theApp = NULL;
+
+	FreeConsole();
 
 	return 0;
 }
