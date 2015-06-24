@@ -78,10 +78,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Framework\GameApp.h" />
+    <ClInclude Include="HalliGalli.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp" />
     <ClCompile Include="Framework\Platform\Win32\WinMain.cpp" />
+    <ClCompile Include="HalliGalli.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

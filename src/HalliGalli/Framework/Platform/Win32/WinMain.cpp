@@ -1,12 +1,11 @@
 #include <Windows.h>
 #include <windowsx.h>
+#include <assert.h>
 #include "../../GameApp.h"
 
 namespace
 {
 	const TCHAR GameAppName[] = TEXT("GameApp");
-	const int ScreenWidth = 960;
-	const int ScreenHeight = 640;
 
 	LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	{
@@ -45,7 +44,7 @@ namespace
 
 	HWND CreateGameWindow(HINSTANCE hInstance)
 	{
-		RECT rc = { 0, 0, ScreenWidth, ScreenHeight };
+		RECT rc = { 0, 0, theApp->ScreenWidth(), theApp->ScreenHeight() };
 		DWORD style = WS_OVERLAPPEDWINDOW & ~WS_SIZEBOX & ~WS_MAXIMIZEBOX;
 		AdjustWindowRect(&rc, style, FALSE);
 
@@ -75,10 +74,16 @@ namespace
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
+	theApp = GameAppCreate();
+	assert(theApp != NULL);
+
 	RegisterWndClass(hInstance);
 	HWND hwnd = CreateGameWindow(hInstance);
 
 	RunLoop(hInstance, hwnd);
+
+	GameAppDestroy(theApp);
+	theApp = NULL;
 
 	return 0;
 }
