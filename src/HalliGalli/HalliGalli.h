@@ -14,7 +14,7 @@ public:
 	virtual void Suspend();
 	virtual void Resume();
 
-	virtual void Frame();
+	virtual void Frame(float delta);
 
 	virtual int ScreenWidth() const;
 	virtual int ScreenHeight() const;

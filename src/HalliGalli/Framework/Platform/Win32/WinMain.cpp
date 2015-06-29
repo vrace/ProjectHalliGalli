@@ -8,6 +8,7 @@
 namespace
 {
 	const TCHAR GameAppName[] = TEXT("GameApp");
+	const double SecondPerFrame = 1.0 / 60.0;
 
 	LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	{
@@ -110,10 +111,40 @@ namespace
 
 		MSG msg;
 
-		while (GetMessage(&msg, NULL, 0, 0))
+		LARGE_INTEGER freq;
+		LARGE_INTEGER timer;
+
+		QueryPerformanceFrequency(&freq);
+		QueryPerformanceCounter(&timer);
+
+		while (1)
 		{
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
+			if (PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE))
+			{
+				if (GetMessage(&msg, NULL, 0, 0))
+				{
+					TranslateMessage(&msg);
+					DispatchMessage(&msg);
+				}
+				else
+				{
+					break;
+				}
+			}
+			else
+			{
+				LARGE_INTEGER tick;
+				QueryPerformanceCounter(&tick);
+
+				double delta = (double)(tick.QuadPart - timer.QuadPart) / (double)freq.QuadPart;
+
+				if (delta >= SecondPerFrame)
+				{
+					timer = tick;
+					theApp->Frame((float)delta);
+					SwapBuffers(hdc);
+				}
+			}
 		}
 
 		wglMakeCurrent(hdc, NULL);
