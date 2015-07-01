@@ -16,4 +16,9 @@
 
 #endif
 
+#include "../Math/Vertex.h"
+
+void DrawTriangle(const Vertex &a, const Vertex &b, const Vertex &c);
+void DrawTriangle(const Vertex *vertices);
+
 #endif
