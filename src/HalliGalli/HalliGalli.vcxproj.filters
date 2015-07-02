@@ -28,6 +28,15 @@
     <ClInclude Include="Framework\Math\Vertex.h">
       <Filter>Framework\Math</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Render\RenderColor.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Render\RenderUV.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Render\RenderVertex.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
@@ -41,6 +50,15 @@
       <Filter>Framework\Math</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Render\Render.cpp">
+      <Filter>Framework\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\RenderColor.cpp">
+      <Filter>Framework\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\RenderUV.cpp">
+      <Filter>Framework\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\RenderVertex.cpp">
       <Filter>Framework\Render</Filter>
     </ClCompile>
   </ItemGroup>

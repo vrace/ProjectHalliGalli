@@ -81,6 +81,9 @@
     <ClInclude Include="Framework\GameApp.h" />
     <ClInclude Include="Framework\Math\Vertex.h" />
     <ClInclude Include="Framework\Render\Render.h" />
+    <ClInclude Include="Framework\Render\RenderColor.h" />
+    <ClInclude Include="Framework\Render\RenderUV.h" />
+    <ClInclude Include="Framework\Render\RenderVertex.h" />
     <ClInclude Include="HalliGalli.h" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +91,9 @@
     <ClCompile Include="Framework\Math\Vertex.cpp" />
     <ClCompile Include="Framework\Platform\Win32\WinMain.cpp" />
     <ClCompile Include="Framework\Render\Render.cpp" />
+    <ClCompile Include="Framework\Render\RenderColor.cpp" />
+    <ClCompile Include="Framework\Render\RenderUV.cpp" />
+    <ClCompile Include="Framework\Render\RenderVertex.cpp" />
     <ClCompile Include="HalliGalli.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

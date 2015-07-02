@@ -35,14 +35,19 @@ void HalliGalliGameApp::Frame(float delta)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glColor3f(1, 1, 1);
-	Render::GetInstance().Triangle(Vertex(1, 1, 0), Vertex(-1, 1, 0), Vertex(0, -1, 0));
+	Render &r = Render::GetInstance();
 
-	glBegin(GL_TRIANGLES);
-	glColor3f(1, 0, 0); glVertex3f(0, 1, 0);
-	glColor3f(0, 1, 0); glVertex3f(1, -1, 0);
-	glColor3f(0, 0, 1); glVertex3f(-1, -1, 0);
-	glEnd();
+	r.Triangle(
+		RenderVertex(Vertex(1, 1, 0)),
+		RenderVertex(Vertex(-1, 1, 0)),
+		RenderVertex(Vertex(0, -1, 0)));
+
+	r.Triangle(
+		RenderVertex(Vertex(0, 1, 0), RenderColor(1, 0, 0)),
+		RenderVertex(Vertex(1, -1, 0), RenderColor(0, 1, 0)),
+		RenderVertex(Vertex(-1, -1, 0), RenderColor(0, 0, 1)));
+
+	r.SubmitBatch();
 }
 
 int HalliGalliGameApp::ScreenWidth() const
