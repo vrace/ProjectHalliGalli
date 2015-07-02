@@ -18,7 +18,19 @@
 
 #include "../Math/Vertex.h"
 
-void DrawTriangle(const Vertex &a, const Vertex &b, const Vertex &c);
-void DrawTriangle(const Vertex *vertices);
+class Render
+{
+public:
+	~Render();
+
+	static Render& GetInstance();
+
+	void Triangle(const Vertex &a, const Vertex &b, const Vertex &c);
+
+private:
+	Render();
+	Render(const Render&);
+	Render& operator= (const Render&);
+};
 
 #endif
