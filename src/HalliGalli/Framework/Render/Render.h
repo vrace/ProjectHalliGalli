@@ -16,7 +16,7 @@
 
 #endif
 
-#include "../Math/Vertex.h"
+#include "RenderVertex.h"
 
 class Render
 {
@@ -25,7 +25,7 @@ public:
 
 	static Render& GetInstance();
 
-	void Triangle(const Vertex &a, const Vertex &b, const Vertex &c);
+	void Triangle(const RenderVertex &a, const RenderVertex &b, const RenderVertex &c);
 
 private:
 	Render();

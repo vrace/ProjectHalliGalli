@@ -24,7 +24,7 @@ public:
 	}
 
 private:
-	float _v[3];
+	float _v[4];
 };
 
 #endif
