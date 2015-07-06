@@ -25,6 +25,9 @@
     <Filter Include="Framework\ThirdParty\libpng">
       <UniqueIdentifier>{23c8ef90-f6c5-499e-a6e1-60ecffc4ed63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\Image">
+      <UniqueIdentifier>{413dd79d-bdd1-40a0-9adf-70812e0a1a5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\GameApp.h">
@@ -96,6 +99,9 @@
     </ClInclude>
     <ClInclude Include="Framework\ThirdParty\libpng\pngstruct.h">
       <Filter>Framework\ThirdParty\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Image\ImageData.h">
+      <Filter>Framework\Image</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +216,9 @@
     </ClCompile>
     <ClCompile Include="Framework\ThirdParty\libpng\pngwutil.c">
       <Filter>Framework\ThirdParty\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Image\ImageData.cpp">
+      <Filter>Framework\Image</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

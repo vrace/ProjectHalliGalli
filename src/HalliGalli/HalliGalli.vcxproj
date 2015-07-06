@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Framework\GameApp.h" />
+    <ClInclude Include="Framework\Image\ImageData.h" />
     <ClInclude Include="Framework\Math\Vertex.h" />
     <ClInclude Include="Framework\Render\Render.h" />
     <ClInclude Include="Framework\Render\RenderColor.h" />
@@ -106,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp" />
+    <ClCompile Include="Framework\Image\ImageData.cpp" />
     <ClCompile Include="Framework\Math\Vertex.cpp" />
     <ClCompile Include="Framework\Platform\Win32\WinMain.cpp" />
     <ClCompile Include="Framework\Render\Render.cpp" />
