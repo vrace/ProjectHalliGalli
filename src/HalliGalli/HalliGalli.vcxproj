@@ -52,7 +52,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -84,6 +84,17 @@
     <ClInclude Include="Framework\Render\RenderColor.h" />
     <ClInclude Include="Framework\Render\RenderUV.h" />
     <ClInclude Include="Framework\Render\RenderVertex.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\crc32.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\deflate.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\gzguts.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\inffast.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\inffixed.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\inflate.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\inftrees.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\trees.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\zconf.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\zlib.h" />
+    <ClInclude Include="Framework\ThirdParty\zlib\zutil.h" />
     <ClInclude Include="HalliGalli.h" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +105,21 @@
     <ClCompile Include="Framework\Render\RenderColor.cpp" />
     <ClCompile Include="Framework\Render\RenderUV.cpp" />
     <ClCompile Include="Framework\Render\RenderVertex.cpp" />
+    <ClCompile Include="Framework\ThirdParty\zlib\adler32.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\compress.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\crc32.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\deflate.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\gzclose.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\gzlib.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\gzread.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\gzwrite.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\infback.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\inffast.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\inflate.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\inftrees.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\trees.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\uncompr.c" />
+    <ClCompile Include="Framework\ThirdParty\zlib\zutil.c" />
     <ClCompile Include="HalliGalli.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
