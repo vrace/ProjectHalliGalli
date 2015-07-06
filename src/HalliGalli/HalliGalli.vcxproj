@@ -53,6 +53,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Framework\ThirdParty\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -84,6 +85,12 @@
     <ClInclude Include="Framework\Render\RenderColor.h" />
     <ClInclude Include="Framework\Render\RenderUV.h" />
     <ClInclude Include="Framework\Render\RenderVertex.h" />
+    <ClInclude Include="Framework\ThirdParty\libpng\png.h" />
+    <ClInclude Include="Framework\ThirdParty\libpng\pngconf.h" />
+    <ClInclude Include="Framework\ThirdParty\libpng\pngdebug.h" />
+    <ClInclude Include="Framework\ThirdParty\libpng\pnginfo.h" />
+    <ClInclude Include="Framework\ThirdParty\libpng\pngpriv.h" />
+    <ClInclude Include="Framework\ThirdParty\libpng\pngstruct.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\crc32.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\deflate.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\gzguts.h" />
@@ -105,6 +112,21 @@
     <ClCompile Include="Framework\Render\RenderColor.cpp" />
     <ClCompile Include="Framework\Render\RenderUV.cpp" />
     <ClCompile Include="Framework\Render\RenderVertex.cpp" />
+    <ClCompile Include="Framework\ThirdParty\libpng\png.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngerror.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngget.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngmem.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngpread.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngread.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngrio.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngrtran.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngrutil.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngset.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngtrans.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngwio.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngwrite.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngwtran.c" />
+    <ClCompile Include="Framework\ThirdParty\libpng\pngwutil.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\adler32.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\compress.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\crc32.c" />
