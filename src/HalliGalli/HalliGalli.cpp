@@ -1,5 +1,6 @@
 #include "HalliGalli.h"
 #include "Framework/Render/Render.h"
+#include "Framework/Image/ImageData.h"
 
 GameApp* GameAppCreate()
 {
@@ -17,6 +18,11 @@ HalliGalliGameApp::HalliGalliGameApp()
 
 void HalliGalliGameApp::Init()
 {
+	ImageData image;
+	image.Load("data/images/button_gallery.png");
+
+	ImageData another;
+	another.Load("data/images/card_cover.png");
 }
 
 void HalliGalliGameApp::Exit()

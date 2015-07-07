@@ -117,6 +117,8 @@ namespace
 		QueryPerformanceFrequency(&freq);
 		QueryPerformanceCounter(&timer);
 
+		theApp->Init();
+
 		while (1)
 		{
 			if (PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE))
@@ -146,6 +148,8 @@ namespace
 				}
 			}
 		}
+
+		theApp->Exit();
 
 		wglMakeCurrent(hdc, NULL);
 		wglDeleteContext(hrc);
