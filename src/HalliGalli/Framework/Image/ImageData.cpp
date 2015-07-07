@@ -73,9 +73,18 @@ bool ImageData::LoadFromPng(const std::string &filename)
 
 		if (_bpp != 0)
 		{
-			_buffer.resize(_width * _height * _bpp / 8);
-			png_bytep *rows = png_get_rows(png, info);
-			memcpy(&_buffer[0], rows, _buffer.size());
+			int bytesPerLine = _width * _bpp / 8;
+			_buffer.resize(_height * bytesPerLine);
+			//png_bytep *rows = png_get_rows(png, info);
+			//for (int i = 0; i < _height; i++)
+			//	memcpy(&_buffer[i * bytesPerLine], rows[i], bytesPerLine);
+
+			std::vector<png_bytep> rows(_height);
+			for (int i = 0; i < _height; i++)
+				rows[i] = &_buffer[i * bytesPerLine];
+			png_set_rows(png, info, &rows[0]);
+			png_get_rows(png, info);
+
 			done = true;
 		}
 
