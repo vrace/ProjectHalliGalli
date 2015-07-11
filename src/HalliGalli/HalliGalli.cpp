@@ -59,7 +59,7 @@ void HalliGalliGameApp::Frame(float delta)
 
 	Render &r = Render::GetInstance();
 
-	glDisable(GL_TEXTURE_2D);
+	r.BindTexture(0);
 
 	r.Triangle(
 		RenderVertex(Vertex(1, 1, 0)),
@@ -71,16 +71,13 @@ void HalliGalliGameApp::Frame(float delta)
 		RenderVertex(Vertex(1, -1, 0), RenderColor(0, 1, 0)),
 		RenderVertex(Vertex(-1, -1, 0), RenderColor(0, 0, 1)));
 
-	r.SubmitBatch();
+	r.BindTexture(texture);
+	r.Triangle(
+		RenderVertex(Vertex(0, 0.5, 0), RenderUV(0.5, 0)),
+		RenderVertex(Vertex(0.5, -0.5, 0), RenderUV(1, 1)),
+		RenderVertex(Vertex(-0.5, -0.5, 0), RenderColor(1, 0, 0), RenderUV(0, 1)));
 
-	glColor3f(1, 1, 1);
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glBegin(GL_TRIANGLES);
-	glTexCoord2f(0.5, 0); glVertex3f(0.0f, 0.5f, 0.0f);
-	glTexCoord2f(1, 1); glVertex3f(0.5, -0.5, 0);
-	glTexCoord2f(0, 1); glVertex3f(-0.5, -0.5, 0);
-	glEnd();
+	r.SubmitBatch();
 }
 
 int HalliGalliGameApp::ScreenWidth() const
