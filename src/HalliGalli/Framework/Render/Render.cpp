@@ -1,4 +1,5 @@
 #include "Render.h"
+#include <stdio.h>
 
 namespace
 {
@@ -52,4 +53,12 @@ void Render::SubmitBatch()
 	}
 
 	_vertices.clear();
+}
+
+void PrintRenderErrors(void)
+{
+	GLenum err;
+	while ((err = glGetError()) != GL_NO_ERROR) {
+		printf("OpenGL error: %d\n", err);
+	}
 }

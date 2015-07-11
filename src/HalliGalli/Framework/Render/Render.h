@@ -38,4 +38,6 @@ private:
 	std::vector<RenderVertex> _vertices;
 };
 
+void PrintRenderErrors(void);
+
 #endif

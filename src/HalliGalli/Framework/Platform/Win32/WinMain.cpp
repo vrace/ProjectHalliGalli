@@ -64,10 +64,12 @@ namespace
 	{
 		PIXELFORMATDESCRIPTOR desc = { 0 };
 		desc.nSize = sizeof(desc);
+		desc.nVersion = 1;
 		desc.cColorBits = 32;
 		desc.cDepthBits = 16;
 		desc.dwFlags = PFD_DRAW_TO_WINDOW | PFD_DOUBLEBUFFER | PFD_SUPPORT_OPENGL;
 		desc.iPixelType = PFD_TYPE_RGBA;
+		desc.iLayerType = PFD_MAIN_PLANE;
 
 		int pf = ChoosePixelFormat(hdc, &desc);
 		SetPixelFormat(hdc, pf, &desc);
@@ -85,12 +87,15 @@ namespace
 
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
-
+		
 		glShadeModel(GL_SMOOTH);
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-		glHint(GL_LINE_SMOOTH, GL_NICEST);
+		
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-		glClearColor(0, 0, 0, 0);
+		glClearColor(0, 0, 0, 1);
+		glClearDepth(1);
 
 		printf("Vendor: %s\n", glGetString(GL_VENDOR));
 		printf("Renderer: %s\n", glGetString(GL_RENDERER));
