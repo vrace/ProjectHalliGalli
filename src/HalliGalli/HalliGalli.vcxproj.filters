@@ -103,6 +103,15 @@
     <ClInclude Include="Framework\Image\ImageData.h">
       <Filter>Framework\Image</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Render\Texture.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Render\TextureManager.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Render\RenderHeader.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
@@ -219,6 +228,12 @@
     </ClCompile>
     <ClCompile Include="Framework\Image\ImageData.cpp">
       <Filter>Framework\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\Texture.cpp">
+      <Filter>Framework\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\TextureManager.cpp">
+      <Filter>Framework\Render</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

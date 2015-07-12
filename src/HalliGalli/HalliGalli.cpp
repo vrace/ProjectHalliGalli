@@ -1,10 +1,11 @@
 #include "HalliGalli.h"
 #include "Framework/Render/Render.h"
+#include "Framework/Render/Texture.h"
 #include "Framework/Image/ImageData.h"
 
 namespace
 {
-	GLuint texture;
+	Texture *texture;
 }
 
 GameApp* GameAppCreate()
@@ -31,12 +32,16 @@ void HalliGalliGameApp::Init()
 
 	// let's try some texture...
 
+	GLuint tex;
+
 	glEnable(GL_TEXTURE_2D);
-	glGenTextures(1, &texture);
-	glBindTexture(GL_TEXTURE_2D, texture);
+	glGenTextures(1, &tex);
+	glBindTexture(GL_TEXTURE_2D, tex);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.width(), image.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image.buffer());
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	texture = new Texture(tex, image.width(), image.height());
 
 	PrintRenderErrors();
 }
@@ -71,11 +76,7 @@ void HalliGalliGameApp::Frame(float delta)
 		RenderVertex(Vertex(1, -1, 0), RenderColor(0, 1, 0)),
 		RenderVertex(Vertex(-1, -1, 0), RenderColor(0, 0, 1)));
 
-	r.BindTexture(texture);
-	r.Triangle(
-		RenderVertex(Vertex(0, 0.5, 0), RenderUV(0.5, 0)),
-		RenderVertex(Vertex(0.5, -0.5, 0), RenderUV(1, 1)),
-		RenderVertex(Vertex(-0.5, -0.5, 0), RenderColor(1, 0, 0), RenderUV(0, 1)));
+	texture->Draw(Vertex(-0.5f, -0.5f), Vertex(0.5f, 0.5f));
 
 	r.SubmitBatch();
 }

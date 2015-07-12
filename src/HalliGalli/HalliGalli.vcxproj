@@ -84,8 +84,11 @@
     <ClInclude Include="Framework\Math\Vertex.h" />
     <ClInclude Include="Framework\Render\Render.h" />
     <ClInclude Include="Framework\Render\RenderColor.h" />
+    <ClInclude Include="Framework\Render\RenderHeader.h" />
     <ClInclude Include="Framework\Render\RenderUV.h" />
     <ClInclude Include="Framework\Render\RenderVertex.h" />
+    <ClInclude Include="Framework\Render\Texture.h" />
+    <ClInclude Include="Framework\Render\TextureManager.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\png.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\pngconf.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\pngdebug.h" />
@@ -114,6 +117,8 @@
     <ClCompile Include="Framework\Render\RenderColor.cpp" />
     <ClCompile Include="Framework\Render\RenderUV.cpp" />
     <ClCompile Include="Framework\Render\RenderVertex.cpp" />
+    <ClCompile Include="Framework\Render\Texture.cpp" />
+    <ClCompile Include="Framework\Render\TextureManager.cpp" />
     <ClCompile Include="Framework\ThirdParty\libpng\png.c" />
     <ClCompile Include="Framework\ThirdParty\libpng\pngerror.c" />
     <ClCompile Include="Framework\ThirdParty\libpng\pngget.c" />
