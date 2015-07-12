@@ -30,6 +30,7 @@ public:
 		return _texid;
 	}
 
+	void Draw(const Vertex &bottomLeft);
 	void Draw(const Vertex &bottomLeft, const Vertex &topRight);
 
 protected:

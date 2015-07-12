@@ -62,21 +62,29 @@ void HalliGalliGameApp::Frame(float delta)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, ScreenWidth(), 0, ScreenHeight(), -1, 1);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
 	Render &r = Render::GetInstance();
 
 	r.BindTexture(0);
 
 	r.Triangle(
-		RenderVertex(Vertex(1, 1, 0)),
-		RenderVertex(Vertex(-1, 1, 0)),
-		RenderVertex(Vertex(0, -1, 0)));
+		RenderVertex(Vertex(100, 100, 0)),
+		RenderVertex(Vertex(500, 100, 0)),
+		RenderVertex(Vertex(300, 500, 0)));
 
 	r.Triangle(
-		RenderVertex(Vertex(0, 1, 0), RenderColor(1, 0, 0)),
-		RenderVertex(Vertex(1, -1, 0), RenderColor(0, 1, 0)),
-		RenderVertex(Vertex(-1, -1, 0), RenderColor(0, 0, 1)));
+		RenderVertex(Vertex(100, 500, 0), RenderColor(1, 0, 0)),
+		RenderVertex(Vertex(500, 500, 0), RenderColor(0, 1, 0)),
+		RenderVertex(Vertex(300, 100, 0), RenderColor(0, 0, 1)));
 
-	texture->Draw(Vertex(-0.5f, -0.5f), Vertex(0.5f, 0.5f));
+	texture->Draw(Vertex(350, 350));
+	texture->Draw(Vertex(200, 200), Vertex(300, 300));
 
 	r.SubmitBatch();
 }
