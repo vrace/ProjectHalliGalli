@@ -1,6 +1,5 @@
 #include "ImageData.h"
 #include "../ThirdParty/libpng/png.h"
-#include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
 
