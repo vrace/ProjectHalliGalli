@@ -3,12 +3,12 @@
 
 #include "RenderHeader.h"
 #include "../Math/Vertex.h"
+#include <string>
 
 class Texture
 {
 public:
-	Texture(GLuint texid, int width, int height);
-	virtual ~Texture();
+	friend class TextureManager;
 
 	inline GLuint TextureID() const
 	{
@@ -30,10 +30,23 @@ public:
 		return _texid;
 	}
 
+	inline const std::string filename() const
+	{
+		return _filename;
+	}
+
 	void Draw(const Vertex &bottomLeft);
 	void Draw(const Vertex &bottomLeft, const Vertex &topRight);
 
+private:
+	Texture(const std::string &filename, GLuint texid, int width, int height);
+	Texture();
+	Texture(const Texture&);
+	Texture& operator =(const Texture&);
+	virtual ~Texture();
+
 protected:
+	std::string _filename;
 	GLuint _texid;
 	int _width;
 	int _height;

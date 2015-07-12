@@ -1,12 +1,8 @@
 #include "HalliGalli.h"
 #include "Framework/Render/Render.h"
 #include "Framework/Render/Texture.h"
+#include "Framework/Render/TextureManager.h"
 #include "Framework/Image/ImageData.h"
-
-namespace
-{
-	Texture *texture;
-}
 
 GameApp* GameAppCreate()
 {
@@ -24,30 +20,16 @@ HalliGalliGameApp::HalliGalliGameApp()
 
 void HalliGalliGameApp::Init()
 {
-	ImageData image;
-	image.Load("data/images/button_gallery.png");
+	TextureManager::InitInstance();
 
-	ImageData another;
-	another.Load("data/images/card_cover.png");
-
-	// let's try some texture...
-
-	GLuint tex;
-
-	glEnable(GL_TEXTURE_2D);
-	glGenTextures(1, &tex);
-	glBindTexture(GL_TEXTURE_2D, tex);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.width(), image.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image.buffer());
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	texture = new Texture(tex, image.width(), image.height());
-
-	PrintRenderErrors();
+	// cache image for use...
+	TextureManager &texman = TextureManager::GetInstance();
+	texman.GetTexture("data/images/button_gallery.png");
 }
 
 void HalliGalliGameApp::Exit()
 {
+	TextureManager::DeleteInstance();
 }
 
 void HalliGalliGameApp::Suspend()
@@ -83,8 +65,13 @@ void HalliGalliGameApp::Frame(float delta)
 		RenderVertex(Vertex(500, 500, 0), RenderColor(0, 1, 0)),
 		RenderVertex(Vertex(300, 100, 0), RenderColor(0, 0, 1)));
 
+	TextureManager &texman = TextureManager::GetInstance();
+	Texture *texture = texman.GetTexture("data/images/button_gallery.png");
+
 	texture->Draw(Vertex(350, 350));
 	texture->Draw(Vertex(200, 200), Vertex(300, 300));
+
+	texman.ReleaseTexture(texture);
 
 	r.SubmitBatch();
 }

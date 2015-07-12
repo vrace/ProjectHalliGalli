@@ -1,8 +1,9 @@
 #include "Texture.h"
 #include "Render.h"
 
-Texture::Texture(GLuint texid, int width, int height)
-	: _texid(texid)
+Texture::Texture(const std::string &filename, GLuint texid, int width, int height)
+	: _filename(filename)
+	, _texid(texid)
 	, _width(width)
 	, _height(height)
 {
