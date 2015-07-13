@@ -1,8 +1,8 @@
 #include "HalliGalli.h"
 #include "Framework/Render/Render.h"
-#include "Framework/Render/Texture.h"
 #include "Framework/Render/TextureManager.h"
-#include "Framework/Image/ImageData.h"
+
+#include "Scenes/TitleScene/TitleScene.h"
 
 GameApp* GameAppCreate()
 {
@@ -22,22 +22,28 @@ void HalliGalliGameApp::Init()
 {
 	TextureManager::InitInstance();
 
-	// cache image for use...
-	TextureManager &texman = TextureManager::GetInstance();
-	texman.GetTexture("data/images/button_gallery.png");
+
+	_scenes[sidTitle] = new TitleScene();
+
+	_sceneManager.PushScene(_scenes[sidTitle]);
 }
 
 void HalliGalliGameApp::Exit()
 {
+	for (int i = 0; i < sidTotal; i++)
+		delete _scenes[i];
+
 	TextureManager::DeleteInstance();
 }
 
 void HalliGalliGameApp::Suspend()
 {
+	_sceneManager.Suspend();
 }
 
 void HalliGalliGameApp::Resume()
 {
+	_sceneManager.Resume();
 }
 
 void HalliGalliGameApp::Frame(float delta)
@@ -51,29 +57,10 @@ void HalliGalliGameApp::Frame(float delta)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	Render &r = Render::GetInstance();
+	_sceneManager.Update(delta);
+	_sceneManager.Render();
 
-	r.BindTexture(0);
-
-	r.Triangle(
-		RenderVertex(Vertex(100, 100, 0)),
-		RenderVertex(Vertex(500, 100, 0)),
-		RenderVertex(Vertex(300, 500, 0)));
-
-	r.Triangle(
-		RenderVertex(Vertex(100, 500, 0), RenderColor(1, 0, 0)),
-		RenderVertex(Vertex(500, 500, 0), RenderColor(0, 1, 0)),
-		RenderVertex(Vertex(300, 100, 0), RenderColor(0, 0, 1)));
-
-	TextureManager &texman = TextureManager::GetInstance();
-	Texture *texture = texman.GetTexture("data/images/button_gallery.png");
-
-	texture->Draw(Vertex(350, 350));
-	texture->Draw(Vertex(200, 200), Vertex(300, 300));
-
-	texman.ReleaseTexture(texture);
-
-	r.SubmitBatch();
+	Render::GetInstance().SubmitBatch();
 }
 
 int HalliGalliGameApp::ScreenWidth() const

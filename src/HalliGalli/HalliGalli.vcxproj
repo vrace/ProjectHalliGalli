@@ -89,6 +89,8 @@
     <ClInclude Include="Framework\Render\RenderVertex.h" />
     <ClInclude Include="Framework\Render\Texture.h" />
     <ClInclude Include="Framework\Render\TextureManager.h" />
+    <ClInclude Include="Framework\Scene\Scene.h" />
+    <ClInclude Include="Framework\Scene\SceneManager.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\png.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\pngconf.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\pngdebug.h" />
@@ -107,6 +109,7 @@
     <ClInclude Include="Framework\ThirdParty\zlib\zlib.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\zutil.h" />
     <ClInclude Include="HalliGalli.h" />
+    <ClInclude Include="Scenes\TitleScene\TitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp" />
@@ -119,6 +122,8 @@
     <ClCompile Include="Framework\Render\RenderVertex.cpp" />
     <ClCompile Include="Framework\Render\Texture.cpp" />
     <ClCompile Include="Framework\Render\TextureManager.cpp" />
+    <ClCompile Include="Framework\Scene\Scene.cpp" />
+    <ClCompile Include="Framework\Scene\SceneManager.cpp" />
     <ClCompile Include="Framework\ThirdParty\libpng\png.c" />
     <ClCompile Include="Framework\ThirdParty\libpng\pngerror.c" />
     <ClCompile Include="Framework\ThirdParty\libpng\pngget.c" />
@@ -150,6 +155,7 @@
     <ClCompile Include="Framework\ThirdParty\zlib\uncompr.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\zutil.c" />
     <ClCompile Include="HalliGalli.cpp" />
+    <ClCompile Include="Scenes\TitleScene\TitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

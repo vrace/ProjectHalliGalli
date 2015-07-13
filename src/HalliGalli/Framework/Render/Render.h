@@ -26,6 +26,8 @@ private:
 	std::vector<RenderVertex> _vertices;
 };
 
+typedef Render RenderEngine;
+
 void PrintRenderErrors(void);
 
 #endif
