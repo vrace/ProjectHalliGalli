@@ -11,9 +11,7 @@ TextureManager::TextureManager()
 TextureManager::~TextureManager()
 {
 	for (TextureCache::iterator it = _textureCache.begin(); it != _textureCache.end(); ++it)
-	{
 		DeleteTexture(it->second.texture);
-	}
 
 	_textureCache.clear();
 }
@@ -112,9 +110,7 @@ void TextureManager::ReleaseTexture(Texture *texture)
 		{
 			it->second.count--;
 			if (it->second.count <= 0)
-			{
 				DeleteTexture(texture);
-			}
 		}
 	}
 }

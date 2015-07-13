@@ -61,7 +61,6 @@ void Render::SubmitBatch()
 void PrintRenderErrors(void)
 {
 	GLenum err;
-	while ((err = glGetError()) != GL_NO_ERROR) {
+	while ((err = glGetError()) != GL_NO_ERROR)
 		printf("OpenGL error: %d\n", err);
-	}
 }
