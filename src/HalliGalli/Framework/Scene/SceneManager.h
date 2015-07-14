@@ -38,11 +38,31 @@ private:
 		PushSceneMethod method;
 	};
 
+	enum SceneOperation
+	{
+		soPush,
+		soPop,
+	};
+
+	struct SceneOp
+	{
+		SceneOperation op;
+		union
+		{
+			RunSceneData push;
+		};
+	};
+
 	typedef std::vector<RunSceneData> SceneStack;
+	typedef std::vector<SceneOp> SceneOpArray;
+
+private:
+	void PushSceneImpl(Scene *scene, PushSceneMethod method);
+	void PopSceneImpl();
 
 private:
 	SceneStack _sceneStack;
-	int _pop;
+	SceneOpArray _sceneOps;
 };
 
 #endif

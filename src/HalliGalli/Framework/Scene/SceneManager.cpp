@@ -1,32 +1,35 @@
 #include "SceneManager.h"
 
 SceneManager::SceneManager()
-	: _pop(0)
 {
 }
 
 void SceneManager::Update(float delta)
 {
+	for (SceneOpArray::iterator it = _sceneOps.begin(); it != _sceneOps.end(); ++it)
+	{
+		switch (it->op)
+		{
+		case soPush:
+			PushSceneImpl(it->push.scene, it->push.method);
+			break;
+
+		case soPop:
+			PopSceneImpl();
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	_sceneOps.clear();
+
 	for (SceneStack::iterator it = _sceneStack.begin(); it != _sceneStack.end(); ++it)
 	{
 		if (it->method & psmUpdate)
 			it->scene->Update(delta);
 	}
-
-	while (_pop > 0 && !_sceneStack.empty())
-	{
-		_pop--;
-		_sceneStack.rbegin()->scene->Exit();
-		_sceneStack.erase(_sceneStack.end() - 1);
-
-		if (!_sceneStack.empty())
-		{
-			_sceneStack.rbegin()->method = psmDefault;
-			_sceneStack.rbegin()->scene->Resume();
-		}
-	}
-
-	_pop = 0;
 }
 
 void SceneManager::Render()
@@ -45,23 +48,52 @@ void SceneManager::PushScene(Scene *scene)
 
 void SceneManager::PushScene(Scene *scene, PushSceneMethod method)
 {
-	if (!_sceneStack.empty())
-	{
-		_sceneStack.rbegin()->scene->Suspend();
-		_sceneStack.rbegin()->method = method;
-	}
+	SceneOp op;
 
-	RunSceneData run;
-	run.scene = scene;
-	run.method = psmDefault;
-	_sceneStack.push_back(run);
+	op.op = soPush;
+	op.push.method = method;
+	op.push.scene = scene;
 
-	scene->Enter();
+	_sceneOps.push_back(op);
 }
 
 void SceneManager::PopScene()
 {
-	++_pop;
+	SceneOp op;
+	op.op = soPop;
+	_sceneOps.push_back(op);
+}
+
+void SceneManager::PushSceneImpl(Scene *scene, PushSceneMethod method)
+{
+	if (!_sceneStack.empty())
+	{
+		_sceneStack.rbegin()->method = method;
+		_sceneStack.rbegin()->scene->Suspend();
+	}
+
+	RunSceneData data;
+	data.method = psmDefault;
+	data.scene = scene;
+
+	_sceneStack.push_back(data);
+
+	scene->Enter();
+}
+
+void SceneManager::PopSceneImpl()
+{
+	if (!_sceneStack.empty())
+	{
+		_sceneStack.rbegin()->scene->Exit();
+		_sceneStack.erase(_sceneStack.end() - 1);
+	}
+
+	if (!_sceneStack.empty())
+	{
+		_sceneStack.rbegin()->method = psmDefault;
+		_sceneStack.rbegin()->scene->Resume();
+	}
 }
 
 void SceneManager::Suspend()
