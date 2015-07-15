@@ -14,7 +14,7 @@ public:
 	virtual void Render();
 
 private:
-	Texture *_texture;
+	Texture *_background;
 };
 
 #endif

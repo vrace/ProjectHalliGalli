@@ -6,7 +6,9 @@ class Vertex
 public:
 	Vertex();
 	Vertex(float x, float y);
+	Vertex(int x, int y);
 	Vertex(float x, float y, float z);
+	Vertex(int x, int y, int z);
 
 	inline float x() const
 	{
