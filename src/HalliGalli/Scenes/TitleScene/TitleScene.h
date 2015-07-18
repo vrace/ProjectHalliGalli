@@ -15,6 +15,7 @@ public:
 
 private:
 	Texture *_background;
+	Texture *_icon;
 };
 
 #endif
