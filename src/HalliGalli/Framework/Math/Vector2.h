@@ -22,6 +22,6 @@ public:
 	T y;
 };
 
-typedef vector2<float> vector2f;
+typedef vector2<float> vec2;
 
 #endif

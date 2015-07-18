@@ -4,20 +4,20 @@
 #include "../Math/Vector2.h"
 #include <string>
 
-class XamlTransformOrigin : public vector2f
+class XamlTransformOrigin : public vec2
 {
 public:
 	XamlTransformOrigin()
-		: vector2f(0.5f, 0.5f)
+		: vec2(0.5f, 0.5f)
 	{
 	}
 };
 
-class XamlScaleTransform : public vector2f
+class XamlScaleTransform : public vec2
 {
 public:
 	XamlScaleTransform()
-		: vector2f(1, 1)
+		: vec2(1, 1)
 	{
 	}
 };
@@ -33,7 +33,7 @@ public:
 	float angle;
 };
 
-typedef vector2f XamlTranslateTransform;
+typedef vec2 XamlTranslateTransform;
 
 class XamlTransformGroup
 {
