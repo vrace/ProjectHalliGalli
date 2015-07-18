@@ -1,32 +1,25 @@
 #ifndef __XAML_TYPES_H__
 #define __XAML_TYPES_H__
 
+#include "../Math/Vector2.h"
 #include <string>
 
-class XamlTransformOrigin
+class XamlTransformOrigin : public vector2f
 {
 public:
 	XamlTransformOrigin()
-		: x(0.5f)
-		, y(0.5f)
+		: vector2f(0.5f, 0.5f)
 	{
 	}
-
-	float x;
-	float y;
 };
 
-class XamlScaleTransform
+class XamlScaleTransform : public vector2f
 {
 public:
 	XamlScaleTransform()
-		: scaleX(1)
-		, scaleY(1)
+		: vector2f(1, 1)
 	{
 	}
-
-	float scaleX;
-	float scaleY;
 };
 
 class XamlRotateTransform
@@ -40,18 +33,7 @@ public:
 	float angle;
 };
 
-class XamlTranslateTransform
-{
-public:
-	XamlTranslateTransform()
-		: x(0)
-		, y(0)
-	{
-	}
-
-	float x;
-	float y;
-};
+typedef vector2f XamlTranslateTransform;
 
 class XamlTransformGroup
 {
@@ -61,19 +43,63 @@ public:
 	XamlTranslateTransform translate;
 };
 
-class XamlWindow
+class XamlSize
 {
 public:
 	int width;
 	int height;
+
+	XamlSize()
+		: width(0)
+		, height(0)
+	{
+	}
+
+	XamlSize(int w, int h)
+		: width(w)
+		, height(h)
+	{
+	}
 };
 
-class XamlImage
+enum XamlNodeType
+{
+	xntWindow,
+	xntImage,
+};
+
+class XamlNode
 {
 public:
+	XamlNode(XamlNodeType nodeType)
+		: type(nodeType)
+	{
+	}
+
+	XamlNodeType type;
+};
+
+class XamlWindow : XamlNode
+{
+public:
+	XamlWindow()
+		: XamlNode(xntWindow)
+	{
+	}
+
+	XamlSize size;
+};
+
+class XamlImage : XamlNode
+{
+public:
+	XamlImage()
+		: XamlNode(xntImage)
+	{
+	}
+
 	std::string source;
-	int width;
-	int height;
+	XamlSize size;
 	XamlTransformOrigin origin;
 	XamlTransformGroup transform;
 };

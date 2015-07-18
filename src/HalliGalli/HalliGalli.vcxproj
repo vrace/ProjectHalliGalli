@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="Framework\GameApp.h" />
     <ClInclude Include="Framework\Image\ImageData.h" />
+    <ClInclude Include="Framework\Math\Vector2.h" />
     <ClInclude Include="Framework\Math\Vertex.h" />
     <ClInclude Include="Framework\Render\Render.h" />
     <ClInclude Include="Framework\Render\RenderColor.h" />

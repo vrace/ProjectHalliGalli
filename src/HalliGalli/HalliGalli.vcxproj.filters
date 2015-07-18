@@ -139,6 +139,9 @@
     <ClInclude Include="Framework\Xaml\XamlUINode.h">
       <Filter>Framework\Xaml</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Math\Vector2.h">
+      <Filter>Framework\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
