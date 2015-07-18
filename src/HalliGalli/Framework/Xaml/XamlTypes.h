@@ -53,7 +53,7 @@ public:
 	float y;
 };
 
-class XamlTransformGruop
+class XamlTransformGroup
 {
 public:
 	XamlScaleTransform scale;

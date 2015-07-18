@@ -108,6 +108,8 @@
     <ClInclude Include="Framework\ThirdParty\zlib\zconf.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\zlib.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\zutil.h" />
+    <ClInclude Include="Framework\Xaml\XamlTypes.h" />
+    <ClInclude Include="Framework\Xaml\XamlUINode.h" />
     <ClInclude Include="HalliGalli.h" />
     <ClInclude Include="Scenes\TitleScene\TitleScene.h" />
   </ItemGroup>
@@ -154,6 +156,7 @@
     <ClCompile Include="Framework\ThirdParty\zlib\trees.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\uncompr.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\zutil.c" />
+    <ClCompile Include="Framework\Xaml\XamlUINode.cpp" />
     <ClCompile Include="HalliGalli.cpp" />
     <ClCompile Include="Scenes\TitleScene\TitleScene.cpp" />
   </ItemGroup>
