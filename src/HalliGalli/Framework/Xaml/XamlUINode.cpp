@@ -4,6 +4,8 @@
 
 XamlUINode::XamlUINode()
 	: _parent(NULL)
+	, _origin(0.5f, 0.5f)
+	, _xform(mat44::identity())
 {
 }
 
@@ -19,11 +21,19 @@ XamlUINode::~XamlUINode()
 
 void XamlUINode::Update(float delta)
 {
-	// TODO: we need to update matrix here...
+	mat44 translate = mat44::translate(_transform.translate.x, _transform.translate.y, 0);
+	mat44 scale = mat44::translate(_transform.scale.x, _transform.scale.y, 1);
+
+	_xform = scale * translate;
+
+	for (XamlUINodeArray::iterator it = _subnodes.begin(); it != _subnodes.end(); ++it)
+		(*it)->Update(delta);
 }
 
 void XamlUINode::Render()
 {
+	for (XamlUINodeArray::iterator it = _subnodes.begin(); it != _subnodes.end(); ++it)
+		(*it)->Render();
 }
 
 void XamlUINode::AddSubNode(XamlUINode *node)

@@ -2,45 +2,22 @@
 #define __XAML_TYPES_H__
 
 #include "../Math/Vector2.h"
+#include "../Math/Matrix44.h"
 #include <string>
-
-class XamlTransformOrigin : public vec2
-{
-public:
-	XamlTransformOrigin()
-		: vec2(0.5f, 0.5f)
-	{
-	}
-};
-
-class XamlScaleTransform : public vec2
-{
-public:
-	XamlScaleTransform()
-		: vec2(1, 1)
-	{
-	}
-};
-
-class XamlRotateTransform
-{
-public:
-	XamlRotateTransform()
-		: angle(0)
-	{
-	}
-
-	float angle;
-};
-
-typedef vec2 XamlTranslateTransform;
 
 class XamlTransformGroup
 {
 public:
-	XamlScaleTransform scale;
-	XamlRotateTransform rotate;
-	XamlTranslateTransform translate;
+	XamlTransformGroup()
+		: scale(1, 1)
+		, rotate(0)
+		, translate(0, 0)
+	{
+	}
+
+	vec2 scale;
+	vec2 translate;
+	float rotate;
 };
 
 class XamlSize
@@ -95,12 +72,13 @@ class XamlImage : XamlNode
 public:
 	XamlImage()
 		: XamlNode(xntImage)
+		, origin(0.5f, 0.5f)
 	{
 	}
 
 	std::string source;
 	XamlSize size;
-	XamlTransformOrigin origin;
+	vec2 origin;
 	XamlTransformGroup transform;
 };
 
