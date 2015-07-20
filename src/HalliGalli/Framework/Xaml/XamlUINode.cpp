@@ -24,7 +24,14 @@ void XamlUINode::Update(float delta)
 	mat44 translate = mat44::translate(_transform.translate.x, _transform.translate.y, 0);
 	mat44 scale = mat44::translate(_transform.scale.x, _transform.scale.y, 1);
 
-	_xform = scale * translate;
+	if (_parent)
+	{
+		_xform = (scale * translate) * _parent->_xform;
+	}
+	else
+	{
+		_xform = scale * translate;
+	}
 
 	for (XamlUINodeArray::iterator it = _subnodes.begin(); it != _subnodes.end(); ++it)
 		(*it)->Update(delta);

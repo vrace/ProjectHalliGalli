@@ -20,6 +20,25 @@ public:
 	float rotate;
 };
 
+class XamlPoint
+{
+public:
+	int x;
+	int y;
+
+	XamlPoint()
+		: x(0)
+		, y(0)
+	{
+	}
+
+	XamlPoint(int _x, int _y)
+		: x(_x)
+		, y(_y)
+	{
+	}
+};
+
 class XamlSize
 {
 public:
@@ -37,6 +56,13 @@ public:
 		, height(h)
 	{
 	}
+};
+
+class XamlRect
+{
+public:
+	XamlPoint origin;
+	XamlSize size;
 };
 
 enum XamlNodeType

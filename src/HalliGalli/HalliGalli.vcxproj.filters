@@ -145,6 +145,9 @@
     <ClInclude Include="Framework\Math\Matrix44.h">
       <Filter>Framework\Math</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Xaml\XamlUIWindow.h">
+      <Filter>Framework\Xaml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
@@ -278,6 +281,9 @@
       <Filter>Scenes\TitleScene</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Xaml\XamlUINode.cpp">
+      <Filter>Framework\Xaml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Xaml\XamlUIWindow.cpp">
       <Filter>Framework\Xaml</Filter>
     </ClCompile>
   </ItemGroup>
