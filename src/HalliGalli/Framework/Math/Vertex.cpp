@@ -34,3 +34,7 @@ Vertex::Vertex(int x, int y, int z)
 {
 }
 
+Vertex::Vertex(const vec2 &vec)
+	: Vertex(vec.x, vec.y)
+{
+}

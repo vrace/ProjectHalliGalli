@@ -6,10 +6,13 @@
 class XamlUIWindow : public XamlUINode
 {
 public:
-	XamlUIWindow(const XamlSize &size);
+	XamlUIWindow(const XamlWindow &window);
 
 	XamlRect GetFrame() const;
 	void SetFrame(const XamlRect &frame);
+
+private:
+	XamlUIWindow();
 
 protected:
 	XamlSize _size;

@@ -1,7 +1,7 @@
 #include "XamlUIWindow.h"
 
-XamlUIWindow::XamlUIWindow(const XamlSize &size)
-	: _size(size)
+XamlUIWindow::XamlUIWindow(const XamlWindow &window)
+	: _size(window.size)
 {
 	_origin.x = 0;
 	_origin.y = 0;

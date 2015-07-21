@@ -1,6 +1,8 @@
 #ifndef __VERTEX_H__
 #define __VERTEX_H__
 
+#include "Vector2.h"
+
 class Vertex
 {
 public:
@@ -9,6 +11,7 @@ public:
 	Vertex(int x, int y);
 	Vertex(float x, float y, float z);
 	Vertex(int x, int y, int z);
+	Vertex(const vec2 &vec);
 
 	inline float x() const
 	{
