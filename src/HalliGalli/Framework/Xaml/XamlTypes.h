@@ -5,6 +5,8 @@
 #include "../Math/Matrix44.h"
 #include <string>
 
+class TiXmlElement;
+
 class XamlTransformGroup
 {
 public:
@@ -45,17 +47,9 @@ public:
 	int width;
 	int height;
 
-	XamlSize()
-		: width(0)
-		, height(0)
-	{
-	}
-
-	XamlSize(int w, int h)
-		: width(w)
-		, height(h)
-	{
-	}
+	XamlSize();
+	XamlSize(int w, int h);
+	XamlSize(TiXmlElement *element);
 };
 
 class XamlRect

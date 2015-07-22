@@ -13,7 +13,6 @@ public:
 	virtual void Update(float delta);
 	virtual void Render();
 
-protected:
 	void AddSubNode(XamlUINode *node);
 	void RemoveFromParent();
 

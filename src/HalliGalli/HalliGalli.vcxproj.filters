@@ -40,6 +40,9 @@
     <Filter Include="Framework\Xaml">
       <UniqueIdentifier>{269b5d52-4bcf-428f-8915-afa079866394}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\ThirdParty\tinyxml">
+      <UniqueIdentifier>{66b1f966-6f80-4c0e-a597-e3684300a5de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\GameApp.h">
@@ -150,6 +153,15 @@
     </ClInclude>
     <ClInclude Include="Framework\Xaml\XamlUIImage.h">
       <Filter>Framework\Xaml</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Xaml\XamlUILoader.h">
+      <Filter>Framework\Xaml</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ThirdParty\tinyxml\tinystr.h">
+      <Filter>Framework\ThirdParty\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ThirdParty\tinyxml\tinyxml.h">
+      <Filter>Framework\ThirdParty\tinyxml</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -290,6 +302,24 @@
       <Filter>Framework\Xaml</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Xaml\XamlUIImage.cpp">
+      <Filter>Framework\Xaml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Xaml\XamlUILoader.cpp">
+      <Filter>Framework\Xaml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\ThirdParty\tinyxml\tinystr.cpp">
+      <Filter>Framework\ThirdParty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\ThirdParty\tinyxml\tinyxml.cpp">
+      <Filter>Framework\ThirdParty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\ThirdParty\tinyxml\tinyxmlerror.cpp">
+      <Filter>Framework\ThirdParty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\ThirdParty\tinyxml\tinyxmlparser.cpp">
+      <Filter>Framework\ThirdParty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Xaml\XamlTypes.cpp">
       <Filter>Framework\Xaml</Filter>
     </ClCompile>
   </ItemGroup>

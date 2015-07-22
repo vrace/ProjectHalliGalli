@@ -3,6 +3,7 @@
 #include "../../Framework/Render/Render.h"
 #include "../../Framework/GameApp.h"
 #include "../../Framework/Math/Matrix44.h"
+#include "../../Framework/Xaml/XamlUILoader.h"
 
 TitleScene::TitleScene()
 	: _background(NULL)
@@ -14,6 +15,9 @@ void TitleScene::Enter()
 	TextureManager &texman = TextureManager::GetInstance();
 	_background = texman.GetTexture("data/images/background.png");
 	_icon = texman.GetTexture("data/images/button_gallery.png");
+
+	XamlUILoader xaml("data/ui/TitleScene.xaml");
+	xaml.CreateNodes();
 }
 
 void TitleScene::Exit()

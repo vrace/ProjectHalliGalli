@@ -99,6 +99,8 @@
     <ClInclude Include="Framework\ThirdParty\libpng\pnginfo.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\pngpriv.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\pngstruct.h" />
+    <ClInclude Include="Framework\ThirdParty\tinyxml\tinystr.h" />
+    <ClInclude Include="Framework\ThirdParty\tinyxml\tinyxml.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\crc32.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\deflate.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\gzguts.h" />
@@ -112,6 +114,7 @@
     <ClInclude Include="Framework\ThirdParty\zlib\zutil.h" />
     <ClInclude Include="Framework\Xaml\XamlTypes.h" />
     <ClInclude Include="Framework\Xaml\XamlUIImage.h" />
+    <ClInclude Include="Framework\Xaml\XamlUILoader.h" />
     <ClInclude Include="Framework\Xaml\XamlUINode.h" />
     <ClInclude Include="Framework\Xaml\XamlUIWindow.h" />
     <ClInclude Include="HalliGalli.h" />
@@ -145,6 +148,10 @@
     <ClCompile Include="Framework\ThirdParty\libpng\pngwrite.c" />
     <ClCompile Include="Framework\ThirdParty\libpng\pngwtran.c" />
     <ClCompile Include="Framework\ThirdParty\libpng\pngwutil.c" />
+    <ClCompile Include="Framework\ThirdParty\tinyxml\tinystr.cpp" />
+    <ClCompile Include="Framework\ThirdParty\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="Framework\ThirdParty\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="Framework\ThirdParty\tinyxml\tinyxmlparser.cpp" />
     <ClCompile Include="Framework\ThirdParty\zlib\adler32.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\compress.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\crc32.c" />
@@ -160,7 +167,9 @@
     <ClCompile Include="Framework\ThirdParty\zlib\trees.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\uncompr.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\zutil.c" />
+    <ClCompile Include="Framework\Xaml\XamlTypes.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUIImage.cpp" />
+    <ClCompile Include="Framework\Xaml\XamlUILoader.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUINode.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUIWindow.cpp" />
     <ClCompile Include="HalliGalli.cpp" />
