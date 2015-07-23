@@ -163,6 +163,9 @@
     <ClInclude Include="Framework\ThirdParty\tinyxml\tinyxml.h">
       <Filter>Framework\ThirdParty\tinyxml</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Xaml\XamlUIGrid.h">
+      <Filter>Framework\Xaml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
@@ -320,6 +323,9 @@
       <Filter>Framework\ThirdParty\tinyxml</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Xaml\XamlTypes.cpp">
+      <Filter>Framework\Xaml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Xaml\XamlUIGrid.cpp">
       <Filter>Framework\Xaml</Filter>
     </ClCompile>
   </ItemGroup>

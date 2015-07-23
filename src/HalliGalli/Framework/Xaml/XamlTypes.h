@@ -59,42 +59,20 @@ public:
 	XamlSize size;
 };
 
-enum XamlNodeType
-{
-	xntWindow,
-	xntImage,
-};
-
-class XamlNode
+class XamlWindow
 {
 public:
-	XamlNode(XamlNodeType nodeType)
-		: type(nodeType)
-	{
-	}
-
-	XamlNodeType type;
-};
-
-class XamlWindow : XamlNode
-{
-public:
-	XamlWindow()
-		: XamlNode(xntWindow)
-	{
-	}
+	XamlWindow();
+	XamlWindow(TiXmlElement *element);
 
 	XamlSize size;
 };
 
-class XamlImage : XamlNode
+class XamlImage
 {
 public:
-	XamlImage()
-		: XamlNode(xntImage)
-		, origin(0.5f, 0.5f)
-	{
-	}
+	XamlImage();
+	XamlImage(TiXmlElement *element);
 
 	std::string source;
 	XamlSize size;

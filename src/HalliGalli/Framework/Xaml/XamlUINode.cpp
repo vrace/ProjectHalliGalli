@@ -65,3 +65,8 @@ void XamlUINode::RemoveFromParent()
 
 	delete this;
 }
+
+const mat44& XamlUINode::XForm() const
+{
+	return _xform;
+}

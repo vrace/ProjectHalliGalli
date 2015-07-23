@@ -16,6 +16,8 @@ public:
 	void AddSubNode(XamlUINode *node);
 	void RemoveFromParent();
 
+	const mat44& XForm() const;
+
 private:
 	XamlUINode(const XamlUINode&);
 	XamlUINode& operator =(const XamlUINode&);

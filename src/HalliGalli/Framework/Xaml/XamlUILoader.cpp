@@ -1,5 +1,6 @@
 #include "XamlUILoader.h"
 #include "XamlUIWindow.h"
+#include "XamlUIGrid.h"
 #include "XamlUIImage.h"
 
 XamlUILoader::XamlUILoader(const std::string &xaml)
@@ -22,10 +23,17 @@ XamlUINode* XamlUILoader::CreateNodes(TiXmlElement *xaml)
 
 		if (type == "Window")
 		{
-			XamlWindow window;
-			window.size = XamlSize(xaml);
-
+			XamlWindow window(xaml);
 			node = new XamlUIWindow(window);
+		}
+		else if (type == "Grid")
+		{
+			node = new XamlUIGrid();
+		}
+		else if (type == "Image")
+		{
+			XamlImage image(xaml);
+			node = new XamlUIImage(image);
 		}
 
 		if (node)
