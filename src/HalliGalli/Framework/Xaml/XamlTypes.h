@@ -10,12 +10,8 @@ class TiXmlElement;
 class XamlTransformGroup
 {
 public:
-	XamlTransformGroup()
-		: scale(1, 1)
-		, rotate(0)
-		, translate(0, 0)
-	{
-	}
+	XamlTransformGroup();
+	XamlTransformGroup(TiXmlElement *root);
 
 	vec2 scale;
 	vec2 translate;

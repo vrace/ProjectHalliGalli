@@ -47,6 +47,42 @@ XamlSize::XamlSize(TiXmlElement *element)
 	height = h ? atoi(h) : 0;
 }
 
+XamlTransformGroup::XamlTransformGroup()
+	: scale(1, 1)
+	, rotate(0)
+	, translate(0, 0)
+{
+}
+
+XamlTransformGroup::XamlTransformGroup(TiXmlElement *root)
+	: XamlTransformGroup()
+{
+	if (root)
+	{
+		TiXmlElement *group = root->FirstChildElement("TransformGroup");
+		if (group)
+		{
+			TiXmlElement *scaleTransform = group->FirstChildElement("ScaleTransform");
+			if (scaleTransform)
+			{
+				scale.x = (float)atof(XamlAttributeValue(scaleTransform, "ScaleX").c_str());
+				scale.y = (float)atof(XamlAttributeValue(scaleTransform, "ScaleY").c_str());
+			}
+
+			TiXmlElement *rotateTransform = group->FirstChildElement("RotateTransform");
+			if (rotateTransform)
+				rotate = (float)atof(XamlAttributeValue(rotateTransform, "Angle").c_str());
+
+			TiXmlElement *translateTransform = group->FirstChildElement("TranslateTransform");
+			if (translateTransform)
+			{
+				translate.x = (float)atof(XamlAttributeValue(translateTransform, "X").c_str());
+				translate.y = (float)atof(XamlAttributeValue(translateTransform, "Y").c_str());
+			}
+		}
+	}
+}
+
 XamlWindow::XamlWindow()
 {
 }
@@ -65,6 +101,7 @@ XamlImage::XamlImage(TiXmlElement *element)
 	: origin(OriginFromXaml(element))
 	, source(XamlAttributeValue(element, "Source"))
 	, size(element)
+	, transform(element->FirstChildElement("Image.RenderTransform"))
 {
-	// TODO: transform
 }
+

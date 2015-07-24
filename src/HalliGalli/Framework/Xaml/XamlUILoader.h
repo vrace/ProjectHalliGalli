@@ -19,6 +19,7 @@ private:
 
 private:
 	XamlUINode* CreateNodes(TiXmlElement *xaml);
+	void CreateSubNodes(XamlUINode *node, TiXmlElement *xaml);
 
 private:
 	TiXmlDocument _document;

@@ -25,30 +25,32 @@ XamlUINode* XamlUILoader::CreateNodes(TiXmlElement *xaml)
 		{
 			XamlWindow window(xaml);
 			node = new XamlUIWindow(window);
+			CreateSubNodes(node, xaml);
 		}
 		else if (type == "Grid")
 		{
 			node = new XamlUIGrid();
+			CreateSubNodes(node, xaml);
 		}
 		else if (type == "Image")
 		{
 			XamlImage image(xaml);
 			node = new XamlUIImage(image);
 		}
-
-		if (node)
-		{
-			TiXmlElement *sub = xaml->FirstChildElement();
-			while (sub)
-			{
-				XamlUINode *subnode = CreateNodes(sub);
-				if (subnode)
-					node->AddSubNode(subnode);
-
-				sub = sub->NextSiblingElement();
-			}
-		}
 	}
 
 	return node;
+}
+
+void XamlUILoader::CreateSubNodes(XamlUINode *node, TiXmlElement *xaml)
+{
+	TiXmlElement *sub = xaml->FirstChildElement();
+	while (sub)
+	{
+		XamlUINode *subnode = CreateNodes(sub);
+		if (subnode)
+			node->AddSubNode(subnode);
+
+		sub = sub->NextSiblingElement();
+	}
 }

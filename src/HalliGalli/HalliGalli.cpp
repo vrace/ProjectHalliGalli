@@ -52,7 +52,7 @@ void HalliGalliGameApp::Frame(float delta)
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0, ScreenWidth(), 0, ScreenHeight(), -1, 1);
+	glOrtho(0, ScreenWidth(), ScreenHeight(), 0, -1, 1);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
