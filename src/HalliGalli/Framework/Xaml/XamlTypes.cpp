@@ -16,7 +16,7 @@ namespace
 			return vec;
 		}
 
-		return vec2(0.5f, 0.5f);
+		return vec2(0, 0);
 	}
 
 	std::string XamlAttributeValue(TiXmlElement *element, const std::string &key)
