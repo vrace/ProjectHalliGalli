@@ -24,9 +24,6 @@ void XamlUIImage::Render()
 {
 	if (_texture)
 	{
-		_texture->Draw(Vertex(_transform.translate),
-			Vertex(_size.width * _transform.scale.x, _size.height * _transform.scale.y));
-
 		RenderEngine &r = RenderEngine::GetInstance();
 
 		r.BindTexture(_texture->TextureID());
@@ -69,7 +66,9 @@ void XamlUIImage::SetImage(const std::string &image)
 	TextureManager &texman = TextureManager::GetInstance();
 
 	texman.ReleaseTexture(_texture);
-	_texture = texman.GetTexture(image);
+
+	std::string src = "data/images/" + image;
+	_texture = texman.GetTexture(src);
 }
 
 void XamlUIImage::SetAnchor(const vec2 &origin)

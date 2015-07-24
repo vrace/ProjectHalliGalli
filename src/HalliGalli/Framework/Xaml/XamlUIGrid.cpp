@@ -2,14 +2,7 @@
 
 void XamlUIGrid::Update(float delta)
 {
-	if (_parent)
-	{
-		_xform = _parent->XForm();
-	}
-	else
-	{
-		_xform = mat44::identity();
-	}
+	_xform = _parent ? _parent->XForm() : mat44::identity();
 
 	for (XamlUINodeArray::iterator it = _subnodes.begin(); it != _subnodes.end(); ++it)
 		(*it)->Update(delta);

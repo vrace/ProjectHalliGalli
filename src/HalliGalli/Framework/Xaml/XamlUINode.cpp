@@ -24,14 +24,7 @@ void XamlUINode::Update(float delta)
 	mat44 translate = mat44::translate(_transform.translate.x, _transform.translate.y, 0);
 	mat44 scale = mat44::translate(_transform.scale.x, _transform.scale.y, 1);
 
-	if (_parent)
-	{
-		_xform = (scale * translate) * _parent->_xform;
-	}
-	else
-	{
-		_xform = scale * translate;
-	}
+	_xform = _parent ? (scale * translate) * _parent->_xform : (scale * translate);
 
 	for (XamlUINodeArray::iterator it = _subnodes.begin(); it != _subnodes.end(); ++it)
 		(*it)->Update(delta);
@@ -53,15 +46,16 @@ void XamlUINode::AddSubNode(XamlUINode *node)
 
 void XamlUINode::RemoveFromParent()
 {
-	assert(_parent);
+	if (_parent)
+	{
+		XamlUINodeArray::iterator it = std::find(
+			_parent->_subnodes.begin(),
+			_parent->_subnodes.end(),
+			this);
 
-	XamlUINodeArray::iterator it = std::find(
-		_parent->_subnodes.begin(),
-		_parent->_subnodes.end(),
-		this);
-
-	if (it != _parent->_subnodes.end())
-		_parent->_subnodes.erase(it);
+		if (it != _parent->_subnodes.end())
+			_parent->_subnodes.erase(it);
+	}
 
 	delete this;
 }
