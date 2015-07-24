@@ -22,7 +22,7 @@ XamlUINode::~XamlUINode()
 void XamlUINode::Update(float delta)
 {
 	mat44 translate = mat44::translate(_transform.translate.x, _transform.translate.y, 0);
-	mat44 scale = mat44::translate(_transform.scale.x, _transform.scale.y, 1);
+	mat44 scale = mat44::scale(_transform.scale.x, _transform.scale.y, 1);
 
 	_xform = _parent ? (scale * translate) * _parent->_xform : (scale * translate);
 

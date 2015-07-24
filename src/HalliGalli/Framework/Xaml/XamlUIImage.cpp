@@ -30,9 +30,6 @@ void XamlUIImage::Render()
 
 		vec2 v[4];
 
-		float hw = _size.width * 0.5f;
-		float hh = _size.height * 0.5f;
-
 		v[0].x = -_size.width * _origin.x;
 		v[0].y = -_size.height * _origin.y;
 		
@@ -45,7 +42,8 @@ void XamlUIImage::Render()
 		v[3].x = _size.width * (1.0f - _origin.x);
 		v[3].y = -_size.height * _origin.y;
 
-		// TODO: transform with xform
+		for (int i = 0; i < 4; i++)
+			v[i].ApplyTransform(_xform);
 
 		r.Triangle(
 			RenderVertex(Vertex(v[0]), RenderUV(0, 0)),
