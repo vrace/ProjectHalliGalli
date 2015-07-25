@@ -1,5 +1,6 @@
 #include "TitleScene.h"
 #include "../../Framework/GameApp.h"
+#include "../../Framework/Render/Render.h"
 #include "../../Framework/Xaml/XamlUILoader.h"
 #include "../../Framework/Xaml/XamlUINode.h"
 
@@ -9,7 +10,7 @@ TitleScene::TitleScene()
 
 void TitleScene::Enter()
 {
-	XamlUILoader xaml("data/ui/TitleScene.xaml");
+	XamlUILoader xaml("TitleScene.xaml");
 	_ui = xaml.CreateNodes();
 }
 

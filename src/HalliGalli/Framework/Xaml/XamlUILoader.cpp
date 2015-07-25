@@ -5,7 +5,8 @@
 
 XamlUILoader::XamlUILoader(const std::string &xaml)
 {
-	_document.LoadFile(xaml.c_str());
+	std::string path = "data/ui/" + xaml;
+	_document.LoadFile(path.c_str());
 }
 
 XamlUINode* XamlUILoader::CreateNodes()

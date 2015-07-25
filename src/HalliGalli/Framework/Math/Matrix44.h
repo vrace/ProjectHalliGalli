@@ -32,6 +32,51 @@ public:
 		return mat;
 	}
 
+	static matrix44<T> rotateX(T angle)
+	{
+		matrix44<T> mat = matrix44<T>::identity();
+
+		T c = cos(angle);
+		T s = sin(angle);
+
+		mat.xform[5] = c;
+		mat.xform[6] = s;
+		mat.xform[9] = -s;
+		mat.xform[10] = c;
+
+		return mat;
+	}
+
+	static matrix44<T> rotateY(T angle)
+	{
+		matrix44<T> mat = matrix44<T>::identity();
+
+		T c = cos(angle);
+		T s = sin(angle);
+
+		mat.xform[0] = c;
+		mat.xform[2] = s;
+		mat.xform[8] = -s;
+		mat.xform[10] = c;
+
+		return mat;
+	}
+
+	static matrix44<T> rotateZ(T angle)
+	{
+		matrix44<T> mat = matrix44<T>::identity();
+
+		T c = cosf(angle);
+		T s = sinf(angle);
+
+		mat.xform[0] = c;
+		mat.xform[1] = s;
+		mat.xform[4] = -s;
+		mat.xform[5] = c;
+
+		return mat;
+	}
+
 	static matrix44<T> scale(T x, T y, T z)
 	{
 		matrix44<T> mat = matrix44<T>::identity();
