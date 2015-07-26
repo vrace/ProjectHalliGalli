@@ -37,7 +37,7 @@ void XamlUIImage::Render()
 		v[1].y = _size.height * (1.0f - _origin.y);
 
 		v[2].x = -_size.width * _origin.x;
-		v[2].y = _size.height * (1.0f - _origin.x);
+		v[2].y = _size.height * (1.0f - _origin.y);
 
 		v[3].x = _size.width * (1.0f - _origin.x);
 		v[3].y = -_size.height * _origin.y;
