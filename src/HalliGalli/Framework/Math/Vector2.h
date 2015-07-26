@@ -23,8 +23,11 @@ public:
 	{
 		const T *m = transform.xform;
 
-		x = m[0] * x + m[4] * y + m[12];
-		y = m[1] * x + m[5] * y + m[13];
+		T px = x;
+		T py = y;
+
+		x = m[0] * px + m[4] * py + m[12];
+		y = m[1] * px + m[5] * py + m[13];
 
 		return *this;
 	}

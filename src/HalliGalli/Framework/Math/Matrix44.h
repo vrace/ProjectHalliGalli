@@ -104,8 +104,8 @@ public:
 		matrix44<T> mat;
 
 		T *R = mat.xform;
-		const T *M = xform;
-		const T *L = rhs.xform;
+		const T *L = xform;
+		const T *M = rhs.xform;
 
 		R[0] = M[0] * L[0] + M[4] * L[1] + M[8] * L[2] + M[12] * L[3];
 		R[1] = M[1] * L[0] + M[5] * L[1] + M[9] * L[2] + M[13] * L[3];
