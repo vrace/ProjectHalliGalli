@@ -27,5 +27,16 @@
 				</TransformGroup>
 			</Image.RenderTransform>
 		</Image>
+		<Button Margin="0,0,0,0" VerticalAlignment="Top" Height="44" HorizontalAlignment="Left" Width="200" Background="{x:Null}" RenderTransformOrigin="0.5,0.5">
+			<Button.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="621" Y="419"/>
+				</TransformGroup>
+			</Button.RenderTransform>
+			<Image Source="background.png" Stretch="Fill"/>
+		</Button>
 	</Grid>
 </Window>
