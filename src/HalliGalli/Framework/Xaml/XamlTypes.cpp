@@ -24,6 +24,16 @@ namespace
 		const char *attr = element->Attribute(key.c_str());
 		return attr ? attr : std::string();
 	}
+
+	std::string FilenameAppendPostfix(const std::string &filename, const std::string &postfix)
+	{
+		std::string::size_type pos = filename.rfind('.');
+
+		if (pos != std::string::npos)
+			return filename.substr(0, pos) + postfix + filename.substr(pos);
+
+		return filename + postfix;
+	}
 };
 
 XamlSize::XamlSize()
@@ -105,3 +115,20 @@ XamlImage::XamlImage(TiXmlElement *element)
 {
 }
 
+XamlButton::XamlButton()
+	: origin(0.5f, 0.5f)
+{
+}
+
+XamlButton::XamlButton(TiXmlElement *element)
+	: origin(OriginFromXaml(element))
+	, size(element)
+	, transform(element->FirstChildElement("Button.RenderTransform"))
+{
+	TiXmlElement *imageElement = element->FirstChildElement("Image");
+	if (imageElement)
+	{
+		imageNormal = XamlAttributeValue(imageElement, "Source");
+		imageDown = FilenameAppendPostfix(imageNormal, "_down");
+	}
+}

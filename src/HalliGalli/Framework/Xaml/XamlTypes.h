@@ -76,4 +76,16 @@ public:
 	XamlTransformGroup transform;
 };
 
+class XamlButton
+{
+public:
+	XamlButton();
+	XamlButton(TiXmlElement *element);
+
+	XamlSize size;
+	vec2 origin;
+	XamlTransformGroup transform;
+	std::string imageNormal, imageDown;
+};
+
 #endif

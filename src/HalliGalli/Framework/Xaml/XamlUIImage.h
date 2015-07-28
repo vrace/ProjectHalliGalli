@@ -17,9 +17,6 @@ public:
 	void SetSize(const XamlSize &size);
 
 private:
-	XamlUIImage();
-
-private:
 	XamlSize _size;
 	Texture *_texture;
 };

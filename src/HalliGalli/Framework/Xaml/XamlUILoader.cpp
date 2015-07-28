@@ -2,6 +2,7 @@
 #include "XamlUIWindow.h"
 #include "XamlUIGrid.h"
 #include "XamlUIImage.h"
+#include "XamlUIButton.h"
 
 XamlUILoader::XamlUILoader(const std::string &xaml)
 {
@@ -37,6 +38,11 @@ XamlUINode* XamlUILoader::CreateNodes(TiXmlElement *xaml)
 		{
 			XamlImage image(xaml);
 			node = new XamlUIImage(image);
+		}
+		else if (type == "Button")
+		{
+			XamlButton button(xaml);
+			node = new XamlUIButton(button);
 		}
 	}
 

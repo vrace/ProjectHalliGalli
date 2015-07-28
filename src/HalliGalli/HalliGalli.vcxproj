@@ -113,6 +113,7 @@
     <ClInclude Include="Framework\ThirdParty\zlib\zlib.h" />
     <ClInclude Include="Framework\ThirdParty\zlib\zutil.h" />
     <ClInclude Include="Framework\Xaml\XamlTypes.h" />
+    <ClInclude Include="Framework\Xaml\XamlUIButton.h" />
     <ClInclude Include="Framework\Xaml\XamlUIGrid.h" />
     <ClInclude Include="Framework\Xaml\XamlUIImage.h" />
     <ClInclude Include="Framework\Xaml\XamlUILoader.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="Framework\ThirdParty\zlib\uncompr.c" />
     <ClCompile Include="Framework\ThirdParty\zlib\zutil.c" />
     <ClCompile Include="Framework\Xaml\XamlTypes.cpp" />
+    <ClCompile Include="Framework\Xaml\XamlUIButton.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUIGrid.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUIImage.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUILoader.cpp" />
