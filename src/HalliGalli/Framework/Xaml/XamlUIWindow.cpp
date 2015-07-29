@@ -1,28 +1,29 @@
 #include "XamlUIWindow.h"
 
 XamlUIWindow::XamlUIWindow(const XamlWindow &window)
-	: _size(window.size)
+	: _designSize(window.size)
+	, _frame(XamlPoint(), window.size)
 {
-	_origin.x = 0;
-	_origin.y = 0;
 }
 
 XamlRect XamlUIWindow::GetFrame() const
 {
-	XamlRect frame;
-
-	frame.origin.x = (int)_transform.translate.x;
-	frame.origin.y = (int)_transform.translate.y;
-	frame.size.width = (int)(_size.width * _transform.scale.x);
-	frame.size.height = (int)(_size.height * _transform.scale.y);
-
-	return frame;
+	return _frame;
 }
 
 void XamlUIWindow::SetFrame(const XamlRect &frame)
 {
-	_transform.translate.x = (float)frame.origin.x;
-	_transform.translate.y = (float)frame.origin.y;
-	_transform.scale.x = (float)frame.size.width / _size.width;
-	_transform.scale.y = (float)frame.size.height / _size.height;
+	_frame = frame;
+	
+	mat44 translate = mat44::translate(
+		(float)frame.origin.x,
+		(float)frame.origin.y,
+		0);
+
+	mat44 scale = mat44::scale(
+		(float)frame.size.width / _designSize.width,
+		(float)frame.size.height / _designSize.height,
+		1);
+
+	_xform = scale * translate;
 }

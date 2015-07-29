@@ -169,6 +169,9 @@
     <ClInclude Include="Framework\Xaml\XamlUIButton.h">
       <Filter>Framework\Xaml</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Xaml\XamlUIDrawable.h">
+      <Filter>Framework\Xaml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
@@ -332,6 +335,9 @@
       <Filter>Framework\Xaml</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Xaml\XamlUIButton.cpp">
+      <Filter>Framework\Xaml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Xaml\XamlUIDrawable.cpp">
       <Filter>Framework\Xaml</Filter>
     </ClCompile>
   </ItemGroup>

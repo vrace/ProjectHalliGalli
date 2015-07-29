@@ -51,6 +51,9 @@ public:
 class XamlRect
 {
 public:
+	XamlRect();
+	XamlRect(const XamlPoint &_origin, const XamlSize &_size);
+
 	XamlPoint origin;
 	XamlSize size;
 };
@@ -64,27 +67,31 @@ public:
 	XamlSize size;
 };
 
-class XamlImage
+class XamlDrawable
 {
 public:
-	XamlImage();
-	XamlImage(TiXmlElement *element);
+	XamlDrawable();
+	XamlDrawable(TiXmlElement *element, const std::string &transformGroupName);
+	virtual ~XamlDrawable();
 
-	std::string source;
 	XamlSize size;
 	vec2 origin;
 	XamlTransformGroup transform;
 };
 
-class XamlButton
+class XamlImage : public XamlDrawable
 {
 public:
-	XamlButton();
+	XamlImage(TiXmlElement *element);
+
+	std::string source;
+};
+
+class XamlButton : public XamlDrawable
+{
+public:
 	XamlButton(TiXmlElement *element);
 
-	XamlSize size;
-	vec2 origin;
-	XamlTransformGroup transform;
 	std::string imageNormal, imageDown;
 };
 

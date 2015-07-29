@@ -15,7 +15,8 @@ private:
 	XamlUIWindow();
 
 protected:
-	XamlSize _size;
+	XamlSize _designSize;
+	XamlRect _frame;
 };
 
 #endif

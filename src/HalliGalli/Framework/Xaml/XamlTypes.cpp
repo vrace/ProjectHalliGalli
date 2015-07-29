@@ -57,6 +57,16 @@ XamlSize::XamlSize(TiXmlElement *element)
 	height = h ? atoi(h) : 0;
 }
 
+XamlRect::XamlRect()
+{
+}
+
+XamlRect::XamlRect(const XamlPoint &_origin, const XamlSize &_size)
+	: origin(_origin)
+	, size(_size)
+{
+}
+
 XamlTransformGroup::XamlTransformGroup()
 	: scale(1, 1)
 	, rotate(0)
@@ -102,28 +112,30 @@ XamlWindow::XamlWindow(TiXmlElement *element)
 {
 }
 
-XamlImage::XamlImage()
+XamlDrawable::XamlDrawable()
 	: origin(0.5f, 0.5f)
+{
+}
+
+XamlDrawable::XamlDrawable(TiXmlElement *element, const std::string &transformGroupName)
+	: origin(OriginFromXaml(element))
+	, size(element)
+	, transform(element->FirstChildElement(transformGroupName.c_str()))
+{
+}
+
+XamlDrawable::~XamlDrawable()
 {
 }
 
 XamlImage::XamlImage(TiXmlElement *element)
-	: origin(OriginFromXaml(element))
+	: XamlDrawable(element, "Image.RenderTransform")
 	, source(XamlAttributeValue(element, "Source"))
-	, size(element)
-	, transform(element->FirstChildElement("Image.RenderTransform"))
-{
-}
-
-XamlButton::XamlButton()
-	: origin(0.5f, 0.5f)
 {
 }
 
 XamlButton::XamlButton(TiXmlElement *element)
-	: origin(OriginFromXaml(element))
-	, size(element)
-	, transform(element->FirstChildElement("Button.RenderTransform"))
+	: XamlDrawable(element, "Button.RenderTransform")
 {
 	TiXmlElement *imageElement = element->FirstChildElement("Image");
 	if (imageElement)

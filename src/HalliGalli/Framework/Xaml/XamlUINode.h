@@ -27,9 +27,6 @@ protected:
 	XamlUINode *_parent;
 	XamlUINodeArray _subnodes;
 
-	vec2 _origin;
-	XamlTransformGroup _transform;
-
 	mat44 _xform;
 };
 

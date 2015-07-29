@@ -2,10 +2,17 @@
 #define __XAML_UI_BUTTON_H__
 
 #include "XamlTypes.h"
-#include "XamlUINode.h"
+#include "XamlUIDrawable.h"
 #include "../Render/Texture.h"
 
-class XamlUIButton : public XamlUINode
+enum XamlUIButtonStatus
+{
+	bsNormal,
+	bsDown,
+	bsNumStatus,
+};
+
+class XamlUIButton : public XamlUIDrawable
 {
 public:
 	XamlUIButton(const XamlButton &button);
@@ -14,14 +21,11 @@ public:
 	virtual void Update(float delta);
 	virtual void Render();
 
-	void SetImageNormal(const std::string &image);
-	void SetImageDown(const std::string &image);
-	void SetAnchor(const vec2 &origin);
-	void SetSize(const XamlSize &size);
+	void SetImage(XamlUIButtonStatus status, const std::string &image);
 
 private:
-	XamlSize _size;
-	Texture *_imageNormal, *_imageDown;
+	Texture *_images[bsNumStatus];
+	XamlUIButtonStatus _status;
 };
 
 #endif
