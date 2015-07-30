@@ -43,6 +43,9 @@
     <Filter Include="Framework\ThirdParty\tinyxml">
       <UniqueIdentifier>{66b1f966-6f80-4c0e-a597-e3684300a5de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\Input">
+      <UniqueIdentifier>{12a828f9-fa15-427e-a8b0-825269aaaf9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\GameApp.h">
@@ -171,6 +174,12 @@
     </ClInclude>
     <ClInclude Include="Framework\Xaml\XamlUIDrawable.h">
       <Filter>Framework\Xaml</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Input\InputManager.h">
+      <Filter>Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Input\InputMessage.h">
+      <Filter>Framework\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -339,6 +348,12 @@
     </ClCompile>
     <ClCompile Include="Framework\Xaml\XamlUIDrawable.cpp">
       <Filter>Framework\Xaml</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Input\InputManager.cpp">
+      <Filter>Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Input\InputMessage.cpp">
+      <Filter>Framework\Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

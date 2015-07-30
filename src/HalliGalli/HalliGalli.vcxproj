@@ -81,6 +81,8 @@
   <ItemGroup>
     <ClInclude Include="Framework\GameApp.h" />
     <ClInclude Include="Framework\Image\ImageData.h" />
+    <ClInclude Include="Framework\Input\InputManager.h" />
+    <ClInclude Include="Framework\Input\InputMessage.h" />
     <ClInclude Include="Framework\Math\Matrix44.h" />
     <ClInclude Include="Framework\Math\Vector2.h" />
     <ClInclude Include="Framework\Math\Vertex.h" />
@@ -126,6 +128,8 @@
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp" />
     <ClCompile Include="Framework\Image\ImageData.cpp" />
+    <ClCompile Include="Framework\Input\InputManager.cpp" />
+    <ClCompile Include="Framework\Input\InputMessage.cpp" />
     <ClCompile Include="Framework\Math\Vertex.cpp" />
     <ClCompile Include="Framework\Platform\Win32\WinMain.cpp" />
     <ClCompile Include="Framework\Render\Render.cpp" />
