@@ -31,3 +31,7 @@ void Scene::Update(float delta)
 void Scene::Render()
 {
 }
+
+void Scene::HandleInput(const InputMessage &message)
+{
+}

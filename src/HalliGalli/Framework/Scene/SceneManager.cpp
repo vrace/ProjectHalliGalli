@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "../Input/InputManager.h"
 
 SceneManager::SceneManager()
 {
@@ -29,6 +30,19 @@ void SceneManager::Update(float delta)
 	{
 		if (it->method & psmUpdate)
 			it->scene->Update(delta);
+	}
+
+	Scene *topScene = NULL;
+	if (!_sceneStack.empty())
+		topScene = _sceneStack.rbegin()->scene;
+
+	InputMessage input;
+	InputManager &inputManager = InputManager::GetInstance();
+	
+	while (inputManager.NextMessage(input))
+	{
+		if (topScene)
+			topScene->HandleInput(input);
 	}
 }
 

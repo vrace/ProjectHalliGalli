@@ -12,6 +12,8 @@ public:
 	void PushInput(const InputMessage &inputMessage);
 	bool NextMessage(InputMessage &inputMessage);
 
+	void PushTapInput(TapEvent tapEvent, int id, int x, int y);
+
 private:
 	InputManager();
 	InputManager(const InputManager&);

@@ -2,6 +2,7 @@
 #define __XAML_UI_NODE_H__
 
 #include "XamlTypes.h"
+#include "../Input/InputMessage.h"
 #include <vector>
 
 class XamlUINode
@@ -12,6 +13,7 @@ public:
 
 	virtual void Update(float delta);
 	virtual void Render();
+	virtual bool HandleInput(const InputMessage &message);
 
 	void AddSubNode(XamlUINode *node);
 	void RemoveFromParent();

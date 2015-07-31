@@ -14,6 +14,7 @@ public:
 	virtual void Exit();
 	virtual void Update(float delta);
 	virtual void Render();
+	virtual void HandleInput(const InputMessage &message);
 
 private:
 	XamlUINode *_ui;

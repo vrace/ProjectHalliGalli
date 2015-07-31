@@ -30,6 +30,17 @@ void XamlUINode::Render()
 		(*it)->Render();
 }
 
+bool XamlUINode::HandleInput(const InputMessage &message)
+{
+	for (XamlUINodeArray::iterator it = _subnodes.begin(); it != _subnodes.end(); ++it)
+	{
+		if ((*it)->HandleInput(message))
+			return true;
+	}
+
+	return false;
+}
+
 void XamlUINode::AddSubNode(XamlUINode *node)
 {
 	assert(!node->_parent);

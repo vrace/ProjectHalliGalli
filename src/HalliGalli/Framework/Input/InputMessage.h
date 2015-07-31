@@ -5,6 +5,7 @@ enum TapEvent
 {
 	teUp,
 	teDown,
+	teMove,
 };
 
 struct InputMessageTap

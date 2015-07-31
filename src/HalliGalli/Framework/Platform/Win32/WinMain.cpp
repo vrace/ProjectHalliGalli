@@ -4,11 +4,14 @@
 #include <stdio.h>
 #include "../../GameApp.h"
 #include "../../Render/Render.h"
+#include "../../Input/InputManager.h"
 
 namespace
 {
 	const TCHAR GameAppName[] = TEXT("GameApp");
 	const double SecondPerFrame = 1.0 / 60.0;
+
+	bool mouseDown = false;
 
 	LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	{
@@ -17,6 +20,21 @@ namespace
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			return 0;
+
+		case WM_LBUTTONDOWN:
+			mouseDown = true;
+			InputManager::GetInstance().PushTapInput(teDown, 0, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+			break;
+
+		case WM_LBUTTONUP:
+			mouseDown = false;
+			InputManager::GetInstance().PushTapInput(teUp, 0, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+			break;
+
+		case WM_MOUSEMOVE:
+			if (mouseDown)
+				InputManager::GetInstance().PushTapInput(teMove, 0, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+			break;
 
 		default:
 			break;

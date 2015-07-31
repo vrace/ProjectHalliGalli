@@ -27,3 +27,16 @@ bool InputManager::NextMessage(InputMessage &inputMessage)
 
 	return false;
 }
+
+void InputManager::PushTapInput(TapEvent tapEvent, int id, int x, int y)
+{
+	InputMessage message;
+	
+	message.type = imtTap;
+	message.tap.tapEvent = tapEvent;
+	message.tap.id = id;
+	message.tap.x = x;
+	message.tap.y = y;
+
+	PushInput(message);
+}

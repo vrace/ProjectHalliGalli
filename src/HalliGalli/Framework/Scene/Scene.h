@@ -1,6 +1,8 @@
 #ifndef __SCENE_H__
 #define __SCENE_H__
 
+#include "../Input/InputMessage.h"
+
 class Scene
 {
 public:
@@ -13,6 +15,7 @@ public:
 	virtual void Resume();
 	virtual void Update(float delta);
 	virtual void Render();
+	virtual void HandleInput(const InputMessage &message);
 };
 
 #endif
