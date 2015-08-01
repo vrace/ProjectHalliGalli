@@ -32,6 +32,26 @@ public:
 		return *this;
 	}
 
+	vector2<T> operator +(const vector2<T> &rhs) const
+	{
+		return vector2<T>(x + rhs.x, y + rhs.y);
+	}
+
+	vector2<T> operator -(const vector2<T> &rhs) const
+	{
+		return vector2<T>(x - rhs.x, y - rhs.y);
+	}
+
+	T LengthSq() const
+	{
+		return x * x + y * y;
+	}
+
+	T Length() const
+	{
+		return sqrt(LengthSq());
+	}
+
 public:
 	T x;
 	T y;

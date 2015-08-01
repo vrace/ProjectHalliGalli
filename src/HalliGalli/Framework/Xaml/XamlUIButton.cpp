@@ -1,4 +1,5 @@
 #include "XamlUIButton.h"
+#include <algorithm>
 
 XamlUIButton::XamlUIButton(const XamlButton &button)
 	: XamlUIDrawable(button)
@@ -24,6 +25,24 @@ void XamlUIButton::Render()
 {
 	Draw(_images[_status]);
 	XamlUIDrawable::Render();
+}
+
+bool XamlUIButton::IsTouchInside(const InputMessage &message)
+{
+	return false;
+}
+
+bool XamlUIButton::HandleInput(const InputMessage &message)
+{
+	if (message.type == imtTap)
+	{
+		if (IsTouchInside(message))
+		{
+			printf("Touch inside!\n");
+		}
+	}
+
+	return false;
 }
 
 void XamlUIButton::SetImage(XamlUIButtonStatus status, const std::string &image)

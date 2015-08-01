@@ -20,8 +20,12 @@ public:
 
 	virtual void Update(float delta);
 	virtual void Render();
+	virtual bool HandleInput(const InputMessage &message);
 
 	void SetImage(XamlUIButtonStatus status, const std::string &image);
+
+private:
+	bool IsTouchInside(const InputMessage &message);
 
 private:
 	Texture *_images[bsNumStatus];

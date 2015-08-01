@@ -34,28 +34,6 @@ void TitleScene::Render()
 
 void TitleScene::HandleInput(const InputMessage &message)
 {
-	// TODO: Handle input
-
-	static const char *tapState[] =
-	{
-		"Up", "Down", "Move"
-	};
-
-	switch (message.type)
-	{
-	case imtTap:
-		printf("Tap: %s [%d, %d]\n", tapState[message.tap.tapEvent],
-			message.tap.x, message.tap.y);
-		break;
-
-	case imtKey:
-		printf("Key: %c\n", message.key.key);
-		break;
-
-	default:
-		break;
-	}
-
 	if (_ui)
 		_ui->HandleInput(message);
 }
