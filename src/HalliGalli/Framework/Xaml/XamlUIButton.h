@@ -9,6 +9,7 @@ enum XamlUIButtonStatus
 {
 	bsNormal,
 	bsDown,
+	bsUpTracking,
 	bsNumStatus,
 };
 

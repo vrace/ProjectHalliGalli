@@ -9,6 +9,7 @@ XamlUIButton::XamlUIButton(const XamlButton &button)
 
 	SetImage(bsNormal, button.imageNormal);
 	SetImage(bsDown, button.imageDown);
+	SetImage(bsUpTracking, button.imageNormal);
 }
 
 XamlUIButton::~XamlUIButton()
@@ -61,9 +62,32 @@ bool XamlUIButton::HandleInput(const InputMessage &message)
 {
 	if (message.type == imtTap)
 	{
-		if (IsTouchInside(message))
+		if (_status == bsNormal)
 		{
-			printf("Touch inside!\n");
+			if (message.tap.tapEvent == teDown && IsTouchInside(message))
+			{
+				_status = bsDown;
+				return true;
+			}
+		}
+		else
+		{
+			if (message.tap.tapEvent == teUp)
+			{
+				_status = bsNormal;
+
+				if (IsTouchInside(message))
+				{
+					printf("Touch up side!\n");
+				}
+
+				return true;
+			}
+			else
+			{
+				_status = IsTouchInside(message) ? bsDown : bsUpTracking;
+				return true;
+			}
 		}
 	}
 
