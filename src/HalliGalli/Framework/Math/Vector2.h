@@ -59,4 +59,28 @@ public:
 
 typedef vector2<float> vec2;
 
+enum VectorSide
+{
+	vsCenter,
+	vsLeft,
+	vsRight
+};
+
+template <class T>
+VectorSide LinePointSide(const vector2<T> &lineStart, const vector2<T> &lineEnd, const vector2<T> &point)
+{
+	float s = (lineStart.x - point.x) * (lineEnd.y - point.y) - (lineStart.y - point.y) * (lineEnd.x - point.x);
+
+	if (s > 0)
+	{
+		return vsLeft;
+	}
+	else if (s < 0)
+	{
+		return vsRight;
+	}
+
+	return vsCenter;
+}
+
 #endif

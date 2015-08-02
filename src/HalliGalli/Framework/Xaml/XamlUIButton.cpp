@@ -29,7 +29,32 @@ void XamlUIButton::Render()
 
 bool XamlUIButton::IsTouchInside(const InputMessage &message)
 {
-	return false;
+	vec2 v[4];
+
+	v[0].x = -_size.width * _origin.x;
+	v[0].y = -_size.height * _origin.y;
+
+	v[1].x = -_size.width * _origin.x;
+	v[1].y = _size.height * (1.0f - _origin.y);
+
+	v[2].x = _size.width * (1.0f - _origin.x);
+	v[2].y = _size.height * (1.0f - _origin.y);
+
+	v[3].x = _size.width * (1.0f - _origin.x);
+	v[3].y = -_size.height * _origin.y;
+
+	for (int i = 0; i < 4; i++)
+		v[i].ApplyTransform(XForm());
+
+	vec2 touch((float)message.tap.x, (float)message.tap.y);
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (LinePointSide(v[i], v[(i + 1) % 4], touch) == vsLeft)
+			return false;
+	}
+
+	return true;
 }
 
 bool XamlUIButton::HandleInput(const InputMessage &message)
