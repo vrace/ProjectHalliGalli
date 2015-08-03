@@ -4,6 +4,7 @@
 #include "XamlTypes.h"
 #include "../Input/InputMessage.h"
 #include <vector>
+#include <string>
 
 class XamlUINode
 {
@@ -20,6 +21,9 @@ public:
 
 	const mat44& XForm() const;
 
+	void SetName(const std::string &name);
+	const std::string& GetName() const;
+
 private:
 	XamlUINode(const XamlUINode&);
 	XamlUINode& operator =(const XamlUINode&);
@@ -30,6 +34,7 @@ protected:
 	XamlUINodeArray _subnodes;
 
 	mat44 _xform;
+	std::string _name;
 };
 
 #endif

@@ -69,3 +69,13 @@ const mat44& XamlUINode::XForm() const
 {
 	return _xform;
 }
+
+void XamlUINode::SetName(const std::string &name)
+{
+	_name = name;
+}
+
+const std::string& XamlUINode::GetName() const
+{
+	return _name;
+}

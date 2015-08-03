@@ -5,6 +5,8 @@ XamlUIButton::XamlUIButton(const XamlButton &button)
 	: XamlUIDrawable(button)
 	, _status(bsNormal)
 {
+	SetName(button.name);
+
 	for (int i = 0; i < bsNumStatus; _images[i++] = NULL);
 
 	SetImage(bsNormal, button.imageNormal);
@@ -78,7 +80,7 @@ bool XamlUIButton::HandleInput(const InputMessage &message)
 
 				if (IsTouchInside(message))
 				{
-					printf("Touch up side!\n");
+					printf("[%s] Touch up side!\n", GetName().c_str());
 				}
 
 				return true;

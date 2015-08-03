@@ -67,6 +67,16 @@ public:
 	XamlSize size;
 };
 
+class XamlNameable
+{
+public:
+	XamlNameable();
+	XamlNameable(TiXmlElement *element);
+	virtual ~XamlNameable();
+
+	std::string name;
+};
+
 class XamlDrawable
 {
 public:
@@ -79,7 +89,9 @@ public:
 	XamlTransformGroup transform;
 };
 
-class XamlImage : public XamlDrawable
+class XamlImage
+	: public XamlDrawable
+	, public XamlNameable
 {
 public:
 	XamlImage(TiXmlElement *element);
@@ -87,7 +99,9 @@ public:
 	std::string source;
 };
 
-class XamlButton : public XamlDrawable
+class XamlButton
+	: public XamlDrawable
+	, public XamlNameable
 {
 public:
 	XamlButton(TiXmlElement *element);

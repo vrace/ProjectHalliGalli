@@ -112,6 +112,19 @@ XamlWindow::XamlWindow(TiXmlElement *element)
 {
 }
 
+XamlNameable::XamlNameable()
+{
+}
+
+XamlNameable::XamlNameable(TiXmlElement *element)
+	: name(XamlAttributeValue(element, "x:Name"))
+{
+}
+
+XamlNameable::~XamlNameable()
+{
+}
+
 XamlDrawable::XamlDrawable()
 	: origin(0.5f, 0.5f)
 {
@@ -130,12 +143,14 @@ XamlDrawable::~XamlDrawable()
 
 XamlImage::XamlImage(TiXmlElement *element)
 	: XamlDrawable(element, "Image.RenderTransform")
+	, XamlNameable(element)
 	, source(XamlAttributeValue(element, "Source"))
 {
 }
 
 XamlButton::XamlButton(TiXmlElement *element)
 	: XamlDrawable(element, "Button.RenderTransform")
+	, XamlNameable(element)
 {
 	TiXmlElement *imageElement = element->FirstChildElement("Image");
 	if (imageElement)

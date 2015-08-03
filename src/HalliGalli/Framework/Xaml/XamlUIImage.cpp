@@ -5,6 +5,7 @@ XamlUIImage::XamlUIImage(const XamlImage &image)
 	: XamlUIDrawable(image)
 	, _texture(NULL)
 {
+	SetName(image.name);
 	SetImage(image.source);
 }
 
