@@ -2,6 +2,7 @@
 #define __XAML_UI_NODE_H__
 
 #include "XamlTypes.h"
+#include "XamlUIMessage.h"
 #include "../Input/InputMessage.h"
 #include <vector>
 #include <string>
@@ -24,6 +25,9 @@ public:
 	void SetName(const std::string &name);
 	const std::string& GetName() const;
 
+	void SetXamlUIMessageHandler(XamlUIMessageHandler *messageHandler);
+	void PopulateXamlUIMessage(const XamlUIMessage &message);
+
 private:
 	XamlUINode(const XamlUINode&);
 	XamlUINode& operator =(const XamlUINode&);
@@ -35,6 +39,7 @@ protected:
 
 	mat44 _xform;
 	std::string _name;
+	XamlUIMessageHandler *_messageHandler;
 };
 
 #endif

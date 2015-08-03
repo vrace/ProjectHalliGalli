@@ -80,7 +80,11 @@ bool XamlUIButton::HandleInput(const InputMessage &message)
 
 				if (IsTouchInside(message))
 				{
-					printf("[%s] Touch up side!\n", GetName().c_str());
+					XamlUIMessage uiMessage;
+					uiMessage.message = xmtButtonTouch;
+					uiMessage.name = GetName();
+
+					PopulateXamlUIMessage(uiMessage);
 				}
 
 				return true;

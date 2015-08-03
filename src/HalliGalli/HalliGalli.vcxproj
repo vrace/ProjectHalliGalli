@@ -120,6 +120,7 @@
     <ClInclude Include="Framework\Xaml\XamlUIGrid.h" />
     <ClInclude Include="Framework\Xaml\XamlUIImage.h" />
     <ClInclude Include="Framework\Xaml\XamlUILoader.h" />
+    <ClInclude Include="Framework\Xaml\XamlUIMessage.h" />
     <ClInclude Include="Framework\Xaml\XamlUINode.h" />
     <ClInclude Include="Framework\Xaml\XamlUIWindow.h" />
     <ClInclude Include="HalliGalli.h" />
@@ -180,6 +181,7 @@
     <ClCompile Include="Framework\Xaml\XamlUIGrid.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUIImage.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUILoader.cpp" />
+    <ClCompile Include="Framework\Xaml\XamlUIMessage.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUINode.cpp" />
     <ClCompile Include="Framework\Xaml\XamlUIWindow.cpp" />
     <ClCompile Include="HalliGalli.cpp" />

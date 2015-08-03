@@ -5,6 +5,7 @@
 XamlUINode::XamlUINode()
 	: _parent(NULL)
 	, _xform(mat44::identity())
+	, _messageHandler(NULL)
 {
 }
 
@@ -78,4 +79,22 @@ void XamlUINode::SetName(const std::string &name)
 const std::string& XamlUINode::GetName() const
 {
 	return _name;
+}
+
+void XamlUINode::SetXamlUIMessageHandler(XamlUIMessageHandler *messageHandler)
+{
+	_messageHandler = messageHandler;
+}
+
+void XamlUINode::PopulateXamlUIMessage(const XamlUIMessage &message)
+{
+	if (_messageHandler)
+	{
+		_messageHandler->HandleXamlUIMessage(message);
+	}
+	else
+	{
+		if (_parent)
+			_parent->PopulateXamlUIMessage(message);
+	}
 }

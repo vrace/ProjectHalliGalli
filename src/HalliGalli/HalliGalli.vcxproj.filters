@@ -181,6 +181,9 @@
     <ClInclude Include="Framework\Input\InputMessage.h">
       <Filter>Framework\Input</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Xaml\XamlUIMessage.h">
+      <Filter>Framework\Xaml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
@@ -354,6 +357,9 @@
     </ClCompile>
     <ClCompile Include="Framework\Input\InputMessage.cpp">
       <Filter>Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Xaml\XamlUIMessage.cpp">
+      <Filter>Framework\Xaml</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
