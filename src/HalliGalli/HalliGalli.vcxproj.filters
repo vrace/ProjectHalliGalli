@@ -184,6 +184,9 @@
     <ClInclude Include="Scenes\MenuScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Scene\XamlUIScene.h">
+      <Filter>Framework\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
@@ -363,6 +366,9 @@
     </ClCompile>
     <ClCompile Include="Scenes\MenuScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Scene\XamlUIScene.cpp">
+      <Filter>Framework\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

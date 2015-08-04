@@ -95,6 +95,7 @@
     <ClInclude Include="Framework\Render\TextureManager.h" />
     <ClInclude Include="Framework\Scene\Scene.h" />
     <ClInclude Include="Framework\Scene\SceneManager.h" />
+    <ClInclude Include="Framework\Scene\XamlUIScene.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\png.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\pngconf.h" />
     <ClInclude Include="Framework\ThirdParty\libpng\pngdebug.h" />
@@ -142,6 +143,7 @@
     <ClCompile Include="Framework\Render\TextureManager.cpp" />
     <ClCompile Include="Framework\Scene\Scene.cpp" />
     <ClCompile Include="Framework\Scene\SceneManager.cpp" />
+    <ClCompile Include="Framework\Scene\XamlUIScene.cpp" />
     <ClCompile Include="Framework\ThirdParty\libpng\png.c" />
     <ClCompile Include="Framework\ThirdParty\libpng\pngerror.c" />
     <ClCompile Include="Framework\ThirdParty\libpng\pngget.c" />
