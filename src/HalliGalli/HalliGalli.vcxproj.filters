@@ -34,9 +34,6 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{a94ad379-0f96-44cd-a532-45138d00a9b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scenes\TitleScene">
-      <UniqueIdentifier>{2b7f30c0-278d-4515-9c8c-6cd0724a0e1c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\Xaml">
       <UniqueIdentifier>{269b5d52-4bcf-428f-8915-afa079866394}</UniqueIdentifier>
     </Filter>
@@ -136,9 +133,6 @@
     <ClInclude Include="Framework\Scene\SceneManager.h">
       <Filter>Framework\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Scenes\TitleScene\TitleScene.h">
-      <Filter>Scenes\TitleScene</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Xaml\XamlTypes.h">
       <Filter>Framework\Xaml</Filter>
     </ClInclude>
@@ -183,6 +177,12 @@
     </ClInclude>
     <ClInclude Include="Framework\Xaml\XamlUIMessage.h">
       <Filter>Framework\Xaml</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\TitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\MenuScene.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -313,9 +313,6 @@
     <ClCompile Include="Framework\Scene\SceneManager.cpp">
       <Filter>Framework\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Scenes\TitleScene\TitleScene.cpp">
-      <Filter>Scenes\TitleScene</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\Xaml\XamlUINode.cpp">
       <Filter>Framework\Xaml</Filter>
     </ClCompile>
@@ -360,6 +357,12 @@
     </ClCompile>
     <ClCompile Include="Framework\Xaml\XamlUIMessage.cpp">
       <Filter>Framework\Xaml</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\TitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\MenuScene.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

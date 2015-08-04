@@ -2,7 +2,13 @@
 #include "Framework/Render/Render.h"
 #include "Framework/Render/TextureManager.h"
 
-#include "Scenes/TitleScene/TitleScene.h"
+#include "Scenes/TitleScene.h"
+#include "Scenes/MenuScene.h"
+
+HalliGalliGameApp* GetGameApp(void)
+{
+	return (HalliGalliGameApp*)theApp;
+}
 
 GameApp* GameAppCreate()
 {
@@ -24,6 +30,7 @@ void HalliGalliGameApp::Init()
 
 
 	_scenes[sidTitle] = new TitleScene();
+	_scenes[sidMenu] = new MenuScene();
 
 	_sceneManager.PushScene(_scenes[sidTitle]);
 }
@@ -71,4 +78,14 @@ int HalliGalliGameApp::ScreenWidth() const
 int HalliGalliGameApp::ScreenHeight() const
 {
 	return 640;
+}
+
+SceneManager& HalliGalliGameApp::GetSceneManager()
+{
+	return _sceneManager;
+}
+
+Scene* HalliGalliGameApp::GetScene(SceneID id)
+{
+	return _scenes[id];
 }

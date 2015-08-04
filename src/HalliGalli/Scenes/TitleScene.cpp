@@ -1,8 +1,8 @@
 #include "TitleScene.h"
-#include "../../Framework/GameApp.h"
-#include "../../Framework/Render/Render.h"
-#include "../../Framework/Xaml/XamlUILoader.h"
-#include "../../Framework/Xaml/XamlUINode.h"
+#include "../HalliGalli.h"
+#include "../Framework/Render/Render.h"
+#include "../Framework/Xaml/XamlUILoader.h"
+#include "../Framework/Xaml/XamlUINode.h"
 
 TitleScene::TitleScene()
 {
@@ -43,6 +43,8 @@ void TitleScene::HandleXamlUIMessage(const XamlUIMessage &message)
 {
 	if (message.message == xmtButtonTouch)
 	{
-		printf("[%s] Touch up inside.\n", message.name.c_str());
+		HalliGalliGameApp *app = GetGameApp();
+		SceneManager &sm = app->GetSceneManager();
+		sm.PushScene(app->GetScene(sidMenu));
 	}
 }

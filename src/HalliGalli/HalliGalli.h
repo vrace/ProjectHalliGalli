@@ -4,6 +4,13 @@
 #include "Framework/GameApp.h"
 #include "Framework/Scene/SceneManager.h"
 
+enum SceneID
+{
+	sidTitle,
+	sidMenu,
+	sidTotal,
+};
+
 class HalliGalliGameApp : public GameApp
 {
 public:
@@ -20,17 +27,15 @@ public:
 	virtual int ScreenWidth() const;
 	virtual int ScreenHeight() const;
 
-private:
-	enum SceneID
-	{
-		sidTitle,
-		sidTotal,
-	};
+	SceneManager& GetSceneManager();
+	Scene* GetScene(SceneID id);
 
 private:
 	SceneManager _sceneManager;
 
 	Scene *_scenes[sidTotal];
 };
+
+extern HalliGalliGameApp* GetGameApp(void);
 
 #endif

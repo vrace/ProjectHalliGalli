@@ -1,0 +1,42 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="HalliGalli.MenuScene"
+	x:Name="Window"
+	Title="MenuScene"
+	Width="480" Height="320" WindowStyle="None">
+
+	<Grid x:Name="LayoutRoot">
+		<Image Margin="0,0,0,0" VerticalAlignment="Top" Height="320" Source="background.png" Stretch="Fill" HorizontalAlignment="Left" Width="480"/>
+		<Button HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="100" x:Name="PlayButton" RenderTransformOrigin="0.5,0.5">
+			<Button.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="80" Y="80"/>
+				</TransformGroup>
+			</Button.RenderTransform>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FFF3F3F3" Offset="0"/>
+					<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+					<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+					<GradientStop Color="#FFCDCDCD" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+			<Image Width="100" Height="100" Source="button_gallery.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		</Button>
+		<Button HorizontalAlignment="Left" Margin="0,0,0,0" Width="100" VerticalAlignment="Top" Height="100" RenderTransformOrigin="0.5,0.5" x:Name="ExitButton">
+			<Button.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="36"/>
+					<TranslateTransform X="281" Y="150"/>
+				</TransformGroup>
+			</Button.RenderTransform>
+			<Image Width="100" Height="100" Source="button_gallery.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		</Button>
+	</Grid>
+</Window>
