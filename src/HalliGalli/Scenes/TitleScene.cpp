@@ -1,9 +1,11 @@
 #include "TitleScene.h"
 #include "../HalliGalli.h"
+#include "../Framework/Render/BitmapFont.h"
 
 TitleScene::TitleScene()
 	: XamlUIScene("TitleScene.xaml")
 {
+	BitmapFont font("data/fonts/futura-48.fnt");
 }
 
 void TitleScene::HandleXamlUIMessage(const XamlUIMessage &message)

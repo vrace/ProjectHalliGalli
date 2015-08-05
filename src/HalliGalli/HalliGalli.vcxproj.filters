@@ -187,6 +187,9 @@
     <ClInclude Include="Framework\Scene\XamlUIScene.h">
       <Filter>Framework\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Render\BitmapFont.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
@@ -369,6 +372,9 @@
     </ClCompile>
     <ClCompile Include="Framework\Scene\XamlUIScene.cpp">
       <Filter>Framework\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\BitmapFont.cpp">
+      <Filter>Framework\Render</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

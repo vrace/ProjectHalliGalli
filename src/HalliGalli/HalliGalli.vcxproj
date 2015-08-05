@@ -86,6 +86,7 @@
     <ClInclude Include="Framework\Math\Matrix44.h" />
     <ClInclude Include="Framework\Math\Vector2.h" />
     <ClInclude Include="Framework\Math\Vertex.h" />
+    <ClInclude Include="Framework\Render\BitmapFont.h" />
     <ClInclude Include="Framework\Render\Render.h" />
     <ClInclude Include="Framework\Render\RenderColor.h" />
     <ClInclude Include="Framework\Render\RenderHeader.h" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Framework\Input\InputMessage.cpp" />
     <ClCompile Include="Framework\Math\Vertex.cpp" />
     <ClCompile Include="Framework\Platform\Win32\WinMain.cpp" />
+    <ClCompile Include="Framework\Render\BitmapFont.cpp" />
     <ClCompile Include="Framework\Render\Render.cpp" />
     <ClCompile Include="Framework\Render\RenderColor.cpp" />
     <ClCompile Include="Framework\Render\RenderUV.cpp" />
