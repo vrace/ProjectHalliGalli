@@ -87,6 +87,7 @@
     <ClInclude Include="Framework\Math\Vector2.h" />
     <ClInclude Include="Framework\Math\Vertex.h" />
     <ClInclude Include="Framework\Render\BitmapFont.h" />
+    <ClInclude Include="Framework\Render\BitmapFontDesc.h" />
     <ClInclude Include="Framework\Render\Render.h" />
     <ClInclude Include="Framework\Render\RenderColor.h" />
     <ClInclude Include="Framework\Render\RenderHeader.h" />
@@ -137,6 +138,7 @@
     <ClCompile Include="Framework\Math\Vertex.cpp" />
     <ClCompile Include="Framework\Platform\Win32\WinMain.cpp" />
     <ClCompile Include="Framework\Render\BitmapFont.cpp" />
+    <ClCompile Include="Framework\Render\BitmapFontDesc.cpp" />
     <ClCompile Include="Framework\Render\Render.cpp" />
     <ClCompile Include="Framework\Render\RenderColor.cpp" />
     <ClCompile Include="Framework\Render\RenderUV.cpp" />

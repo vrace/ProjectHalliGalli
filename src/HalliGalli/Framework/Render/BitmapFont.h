@@ -2,14 +2,9 @@
 #define __BITMAP_FONT_H__
 
 #include "Texture.h"
+#include "BitmapFontDesc.h"
 #include <string>
 #include <vector>
-
-struct BitmapFontPadding
-{
-	BitmapFontPadding();
-	int top, left, bottom, right;
-};
 
 class BitmapFont
 {
@@ -23,13 +18,8 @@ private:
 	BitmapFont& operator =(const BitmapFont&);
 
 private:
-	void ProcessDesc(const std::string &line);
-	void ProcessInfoArgs(const std::string &line);
-	void ProcessCommonArgs(const std::string &line);
-
-private:
 	std::vector<Texture*> _textures;
-	BitmapFontPadding _padding;
+	BitmapFontDesc _desc;
 };
 
 #endif

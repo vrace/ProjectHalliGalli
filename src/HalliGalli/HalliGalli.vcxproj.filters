@@ -190,6 +190,9 @@
     <ClInclude Include="Framework\Render\BitmapFont.h">
       <Filter>Framework\Render</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Render\BitmapFontDesc.h">
+      <Filter>Framework\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameApp.cpp">
@@ -374,6 +377,9 @@
       <Filter>Framework\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Render\BitmapFont.cpp">
+      <Filter>Framework\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\BitmapFontDesc.cpp">
       <Filter>Framework\Render</Filter>
     </ClCompile>
   </ItemGroup>
