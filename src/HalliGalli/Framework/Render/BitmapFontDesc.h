@@ -8,23 +8,32 @@
 
 struct BitmapFontPadding
 {
-	int top, left, bottom, right;
-
 	BitmapFontPadding();
 	void Init(const std::string &line);
+
+	int top, left, bottom, right;
 };
 
 struct BitmapFontPages
 {
-	std::map<int, std::string> pages;
-
 	void Init(const std::string &line);
+
+	std::map<int, std::string> pages;
+};
+
+struct BitmapFontChar
+{
+	BitmapFontChar();
+	bool Init(const std::string &line);
+
+	int id, x, y, width, height, xoffset, yoffset, xadvance, page;
 };
 
 struct BitmapFontDesc
 {
 	BitmapFontPadding padding;
 	BitmapFontPages pages;
+	std::map<int, BitmapFontChar> chardefs;
 
 	BitmapFontDesc();
 	void Init(std::istream &font);
