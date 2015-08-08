@@ -14,6 +14,21 @@ struct BitmapFontPadding
 	int top, left, bottom, right;
 };
 
+struct BitmapFontInfo
+{
+	void Init(const std::string &line);
+
+	BitmapFontPadding padding;
+};
+
+struct BitmapFontCommon
+{
+	BitmapFontCommon();
+	void Init(const std::string &line);
+
+	int lineHeight, base;
+};
+
 struct BitmapFontPages
 {
 	void Init(const std::string &line);
@@ -31,7 +46,8 @@ struct BitmapFontChar
 
 struct BitmapFontDesc
 {
-	BitmapFontPadding padding;
+	BitmapFontInfo info;
+	BitmapFontCommon common;
 	BitmapFontPages pages;
 	std::map<int, BitmapFontChar> chardefs;
 

@@ -32,6 +32,8 @@ namespace
 	}
 };
 
+#define EXTRACT_VALUE(tag) ExtractValue(line, #tag, tag)
+
 BitmapFontPadding::BitmapFontPadding()
 	: top(0), left(0), bottom(0), right(0)
 {
@@ -47,12 +49,28 @@ void BitmapFontPadding::Init(const std::string &line)
 	}
 }
 
+void BitmapFontInfo::Init(const std::string &line)
+{
+	padding.Init(line);
+}
+
+BitmapFontCommon::BitmapFontCommon()
+	: lineHeight(0), base(0)
+{
+}
+
+void BitmapFontCommon::Init(const std::string &line)
+{
+	EXTRACT_VALUE(lineHeight);
+	EXTRACT_VALUE(base);
+}
+
 void BitmapFontPages::Init(const std::string &line)
 {
 	int id;
 	std::string file;
 
-	if (ExtractValue(line, "id", id) && ExtractValue(line, "file", file))
+	if (EXTRACT_VALUE(id) && EXTRACT_VALUE(file))
 	{
 		if (!file.empty() && file[0] == '"')
 			file = file.substr(1);
@@ -74,15 +92,15 @@ BitmapFontChar::BitmapFontChar()
 
 bool BitmapFontChar::Init(const std::string &line)
 {
-	ExtractValue(line, "id", id);
-	ExtractValue(line, "x", x);
-	ExtractValue(line, "y", y);
-	ExtractValue(line, "width", width);
-	ExtractValue(line, "height", height);
-	ExtractValue(line, "xoffset", xoffset);
-	ExtractValue(line, "yoffset", yoffset);
-	ExtractValue(line, "xadvance", xadvance);
-	ExtractValue(line, "page", page);
+	EXTRACT_VALUE(id);
+	EXTRACT_VALUE(x);
+	EXTRACT_VALUE(y);
+	EXTRACT_VALUE(width);
+	EXTRACT_VALUE(height);
+	EXTRACT_VALUE(xoffset);
+	EXTRACT_VALUE(yoffset);
+	EXTRACT_VALUE(xadvance);
+	EXTRACT_VALUE(page);
 
 	return id > 0;
 }
@@ -98,11 +116,11 @@ void BitmapFontDesc::Init(std::istream &font)
 	{
 		if (line.find("info ") == 0)
 		{
-			padding.Init(line);
+			info.Init(line);
 		}
 		else if (line.find("common ") == 0)
 		{
-			// TODO:
+			common.Init(line);
 		}
 		else if (line.find("page ") == 0)
 		{
