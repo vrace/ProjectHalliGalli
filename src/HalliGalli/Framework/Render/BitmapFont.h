@@ -3,8 +3,8 @@
 
 #include "Texture.h"
 #include "BitmapFontDesc.h"
+#include "../Math/Vector2.h"
 #include <string>
-#include <vector>
 
 class BitmapFont
 {
@@ -12,13 +12,19 @@ public:
 	BitmapFont(const std::string &fontdesc);
 	~BitmapFont();
 
+	void Draw(const vec2 &topleft, const std::string &text);
+
 private:
 	BitmapFont();
 	BitmapFont(const BitmapFont&);
 	BitmapFont& operator =(const BitmapFont&);
 
 private:
-	std::vector<Texture*> _textures;
+	Texture* LoadFontTexture(const std::string &name);
+
+private:
+	typedef std::map<int, Texture*> MapType;
+	MapType _textures;
 	BitmapFontDesc _desc;
 };
 

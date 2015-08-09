@@ -110,7 +110,10 @@ void TextureManager::ReleaseTexture(Texture *texture)
 		{
 			it->second.count--;
 			if (it->second.count <= 0)
+			{
 				DeleteTexture(texture);
+				_textureCache.erase(it);
+			}
 		}
 	}
 }

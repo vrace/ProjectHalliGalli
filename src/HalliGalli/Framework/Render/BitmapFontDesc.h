@@ -33,7 +33,8 @@ struct BitmapFontPages
 {
 	void Init(const std::string &line);
 
-	std::map<int, std::string> pages;
+	typedef std::map<int, std::string> MapType;
+	MapType pages;
 };
 
 struct BitmapFontChar
