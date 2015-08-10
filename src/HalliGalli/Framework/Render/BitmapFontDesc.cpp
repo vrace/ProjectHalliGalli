@@ -63,6 +63,8 @@ void BitmapFontCommon::Init(const std::string &line)
 {
 	EXTRACT_VALUE(lineHeight);
 	EXTRACT_VALUE(base);
+	EXTRACT_VALUE(scaleW);
+	EXTRACT_VALUE(scaleH);
 }
 
 void BitmapFontPages::Init(const std::string &line)

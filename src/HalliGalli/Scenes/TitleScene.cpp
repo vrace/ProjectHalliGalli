@@ -5,7 +5,12 @@
 TitleScene::TitleScene()
 	: XamlUIScene("TitleScene.xaml")
 {
-	BitmapFont font("data/fonts/futura-48.fnt");
+	font = new BitmapFont("data/fonts/futura-48.fnt");
+}
+
+TitleScene::~TitleScene()
+{
+	delete font;
 }
 
 void TitleScene::HandleXamlUIMessage(const XamlUIMessage &message)
@@ -16,4 +21,10 @@ void TitleScene::HandleXamlUIMessage(const XamlUIMessage &message)
 		SceneManager &sm = app->GetSceneManager();
 		sm.PushScene(app->GetScene(sidMenu));
 	}
+}
+
+void TitleScene::Render()
+{
+	XamlUIScene::Render();
+	font->Draw(vec2(200, 200), "Halli Galli");
 }

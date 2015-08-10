@@ -26,7 +26,7 @@ struct BitmapFontCommon
 	BitmapFontCommon();
 	void Init(const std::string &line);
 
-	int lineHeight, base;
+	int lineHeight, base, scaleW, scaleH;
 };
 
 struct BitmapFontPages
